@@ -42,7 +42,7 @@ final AS (
         , supplier_id
         , payment_method
         , [transaction_date]
-        , [transaction_time]
+        , transaction_time
         , [line_number]
         , [quantity]
         , [unit_price_kes]
@@ -95,7 +95,7 @@ SELECT * INTO gold.fact_sales FROM (
         , [payment_method]
         , [order_status]
         , [delivery_fee]
-        , [transaction_date] = [order_date]
+        , [transaction_date] = order_date
         , [transaction_time] = [order_time]
         , [line_number]
         , [quantity]
@@ -139,3 +139,4 @@ SELECT * INTO gold.fact_sales FROM (
     ) t
     WHERE order_line_key_new = 1
 ) combined;
+
