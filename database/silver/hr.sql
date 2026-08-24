@@ -113,13 +113,25 @@ SELECT
     [last_name],
     [gender],
     [department],
-    [job_title],
+    CASE WHEN [job_title] IS NULL AND department = 'Finance' THEN 'Finance Analyst'
+	     WHEN [job_title] IS NULL AND department = 'HR' THEN 'HR Officer'
+	     WHEN [job_title] IS NULL AND department = 'IT' THEN 'Support'
+		 WHEN [job_title] IS NULL AND department = 'Marketing' THEN 'Brand Officer'
+		 WHEN [job_title] IS NULL AND department = 'Sales' THEN 'Promoter'
+		 WHEN [job_title] IS NULL AND department = 'Store Operations' THEN 'Cashier'
+		 WHEN [job_title] IS NULL AND department = 'Supply Chain' THEN 'Procurement Officer'
+		 WHEN [job_title] IS NULL AND department = 'Warehouse' THEN 'Stock Keeper'
+	ELSE job_title END AS job_title,
     [store_id],
     [shift_pattern],
     
     -- Dates (with NULL handling)
-    valid_from,
-    valid_to,
+    FORMAT(
+	        COALESCE(CAST(DATEADD(day,1,LAG(valid_to) 
+            OVER(PARTITION BY employee_id ORDER BY valid_from,valid_to)) AS DATE),valid_from),
+			'yyyy-MM-dd') valid_from
+      ,FORMAT(CASE WHEN [valid_to] IS NULL THEN GETDATE() 
+            ELSE [valid_to] END, 'yyyy-MM-dd') valid_to,
     birth_date,
     hire_date,
     
