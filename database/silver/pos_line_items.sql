@@ -84,22 +84,70 @@ validated AS (
         END AS quality_flag
         
     FROM base
+),
+-- Aggregate duplicate products within the same transaction
+aggregated AS (
+    SELECT 
+        transaction_id,
+        product_id,
+        MIN(line_number) AS line_number,  -- Keep the first line number
+        SUM(quantity) AS quantity,
+        AVG(unit_price_kes) AS unit_price_kes,  -- Assuming same price, use AVG
+        AVG(discount_rate) AS discount_rate,    -- Assuming same discount rate, use AVG
+        SUM(line_total) AS line_total,
+        SUM(ROUND(quantity * unit_price_kes * discount_rate, 2)) AS discount_amount_kes,
+        -- Weighted average for effective unit price
+        ROUND(SUM(quantity * unit_price_kes * (1 - discount_rate)) / SUM(quantity), 2) AS effective_unit_price_kes,
+        -- Handle discount_tier: if all same, keep it; otherwise use 'Mixed'
+        CASE 
+            WHEN COUNT(DISTINCT 
+                CASE 
+                    WHEN discount_rate = 0 THEN 'No Discount'
+                    WHEN discount_rate < 0.05 THEN 'Small Discount (<5%)'
+                    WHEN discount_rate < 0.10 THEN 'Standard Discount (5-10%)'
+                    WHEN discount_rate < 0.20 THEN 'Large Discount (10-20%)'
+                    ELSE 'Heavy Discount (>20%)'
+                END
+            ) = 1 
+            THEN MAX(
+                CASE 
+                    WHEN discount_rate = 0 THEN 'No Discount'
+                    WHEN discount_rate < 0.05 THEN 'Small Discount (<5%)'
+                    WHEN discount_rate < 0.10 THEN 'Standard Discount (5-10%)'
+                    WHEN discount_rate < 0.20 THEN 'Large Discount (10-20%)'
+                    ELSE 'Heavy Discount (>20%)'
+                END
+            )
+            ELSE 'Mixed Discount Tiers'
+        END AS discount_tier,
+        -- Recalculate line_value_tier based on aggregated line_total
+        CASE 
+            WHEN SUM(line_total) >= 500000 THEN 'Premium Line (500K+ KES)'
+            WHEN SUM(line_total) >= 100000 THEN 'High Value Line (100K-500K)'
+            WHEN SUM(line_total) >= 50000 THEN 'Medium Value Line (50K-100K)'
+            WHEN SUM(line_total) >= 10000 THEN 'Low Value Line (10K-50K)'
+            ELSE 'Small Item (<10K KES)'
+        END AS line_value_tier,
+        MAX(transaction_source) AS transaction_source
+    FROM validated
+    WHERE quality_flag = 'Valid'
+    GROUP BY transaction_id, product_id
 )
 
 SELECT 
     -- Surrogate key
-    ROW_NUMBER() OVER(ORDER BY transaction_id)AS pos_line_key,
+    ROW_NUMBER() OVER(ORDER BY transaction_id, line_number) AS pos_line_key,
     -- Foreign keys
     transaction_id,
     line_number,
     product_id,
-    --Quantities and pricing
+    -- Quantities and pricing
     quantity,
-    unit_price_kes,
-    discount_rate,
-    effective_unit_price_kes,
-    discount_amount_kes,
-    line_total,
+    ROUND(unit_price_kes, 2) AS unit_price_kes,
+    ROUND(discount_rate, 2) AS discount_rate,
+    ROUND(effective_unit_price_kes, 2) AS effective_unit_price_kes,
+    ROUND(discount_amount_kes, 2) AS discount_amount_kes,
+    ROUND(line_total, 2) AS line_total,
     -- Categorizations
     discount_tier,
     line_value_tier,
@@ -108,16 +156,15 @@ SELECT
     GETDATE() AS etl_load_date,
     'silver.pos_line_items' AS etl_source
 INTO silver.pos_line_items
-FROM validated
-WHERE quality_flag = 'Valid'
+FROM aggregated
 ORDER BY transaction_id, line_number;
 
---DROP INDEX IF EXISTS idx_pos_line_items_poslinekey ON silver.pos_line_items;
+DROP INDEX IF EXISTS idx_pos_line_items_poslinekey ON silver.pos_line_items;
 
---CREATE CLUSTERED COLUMNSTORE INDEX idx_pos_line_items_poslinekey ON
---silver.pos_line_items;
+CREATE CLUSTERED COLUMNSTORE INDEX idx_pos_line_items_poslinekey ON
+silver.pos_line_items;
 
---DROP INDEX IF EXISTS idx_poslineitemstransaction_id ON silver.pos_line_items;
+DROP INDEX IF EXISTS idx_poslineitemstransaction_id ON silver.pos_line_items;
 
---CREATE NONCLUSTERED INDEX idx_poslineitemstransaction_id 
---ON silver.pos_line_items (transaction_id);
+CREATE NONCLUSTERED INDEX idx_poslineitemstransaction_id 
+ON silver.pos_line_items (transaction_id);
