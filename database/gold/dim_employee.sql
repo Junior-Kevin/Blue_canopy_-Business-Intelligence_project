@@ -1,10 +1,9 @@
 USE Blue_canopy;
 GO
 DROP TABLE IF EXISTS  gold.dim_employee;
-SELECT ROW_NUMBER() OVER(ORDER BY employee_id) employee_sk
-      ,[employee_id]
-      ,[first_name]
-      ,[last_name]
+SELECT ROW_NUMBER() OVER(ORDER BY hr.employee_id) employee_sk
+      ,hr.[employee_id]
+	  ,eb.employee_key
 	  ,[full_name]
       ,[display_name]
       ,email=[generated_email]
@@ -32,15 +31,14 @@ SELECT ROW_NUMBER() OVER(ORDER BY employee_id) employee_sk
       ,[employment_status]
       ,[contract_length_months]
       ,[contract_type]
-      ,[department_name]
+      ,[department]
       ,[department_category]
       ,[job_level]
       ,[is_manager]
-      ,[hire_month]
-      ,[hire_quarter]
       ,[hire_season]
-      ,[hire_year]
       ,[years_since_hire]
       ,[hire_cohort]
-	  INTO gold.dim_employee
-  FROM [Blue_canopy].[silver].[hr]
+	 INTO gold.dim_employee
+  FROM [Blue_canopy].[silver].[hr] hr
+  LEFT JOIN [gold].[dim_employee_bridge] eb
+  ON hr.employee_id = eb.employee_id
