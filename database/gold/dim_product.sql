@@ -35,8 +35,9 @@ SELECT
 	  ,is_current_version = CASE WHEN valid_to IS NULL THEN 'yes' ELSE 'no' END
   FROM [Blue_canopy].[silver].[products]
   ) SELECT product_sk
+           ,PB.product_key
             --,flag
-     	  ,product_id
+     	  ,MM.product_id
 		 --,product_lag
 		 --,product_lag1
 	  ,[product_name]
@@ -61,7 +62,9 @@ SELECT
 	  ,is_active
 	  ,is_current_version
 	  INTO gold.dim_product
-	  FROM main
+	  FROM main MM
+	  LEFT JOIN [gold].[dim_product_bridge] PB
+	  ON MM.product_id = PB.product_id
 	  ORDER BY product_sk, product_id,valid_from;
 GO
 CREATE NONCLUSTERED COLUMNSTORE INDEX idx_product_product_id ON 
