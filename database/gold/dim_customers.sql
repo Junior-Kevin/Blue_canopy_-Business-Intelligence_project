@@ -1,9 +1,7 @@
 DROP TABLE IF EXISTS Blue_canopy.gold.dim_customers;
 GO
-SELECT  ROW_NUMBER() OVER(order by registration_date) customer_sk 
+SELECT  ROW_NUMBER() OVER(order by registration_date) customer_key
        ,crm.[customer_id]
-      ,[first_name]
-      ,[last_name]
       ,[full_name]
       ,[gender]
       ,[birth_date]
@@ -18,7 +16,6 @@ SELECT  ROW_NUMBER() OVER(order by registration_date) customer_sk
       ,[age]
       ,[age_band]
       ,[phone]
-      ,[email]
       ,[town]
       ,[customer_segment]
       ,[acquisition_channel]
@@ -31,12 +28,5 @@ SELECT  ROW_NUMBER() OVER(order by registration_date) customer_sk
       ,[tenure_days]
       ,[tenure_months]
       ,[tenure_band]
-      ,[registration_year]
-      ,[registration_month]
-      ,[registration_quarter]
-      ,[email_domain]
-      ,[phone_prefix]
-      ,[is_phone_valid]
-      ,[is_email_valid]
    INTO gold.dim_customers
    FROM [Blue_canopy].[silver].[crm] crm 
