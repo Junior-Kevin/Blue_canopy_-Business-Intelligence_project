@@ -6,7 +6,7 @@ WITH base AS (
     SELECT 
         [order_id],
         [line_number],
-        LEFT([product_id],9) product_id,
+        [product_id],
         CAST([quantity] AS INT) AS quantity,
         ABS(ROUND(CAST([unit_price] AS FLOAT), 2)) AS unit_price_kes,
         ABS(CAST([discount_rate] AS FLOAT)) AS discount_rate,
@@ -15,7 +15,6 @@ WITH base AS (
     WHERE [order_id] IS NOT NULL 
         AND [product_id] IS NOT NULL
 ),
-
 validated AS (
     SELECT 
         *,
@@ -54,10 +53,37 @@ validated AS (
         END AS quality_flag
         
     FROM base
+),
+-- Aggregate duplicate products within the same order (mirrors the POS pipeline).
+-- Without this step, two raw lines with the same order_id + product_id stay
+-- as two separate rows instead of being merged.
+aggregated AS (
+    SELECT
+        order_id,
+        product_id,
+        ROW_NUMBER() OVER (PARTITION BY order_id ORDER BY MIN(line_number)) AS line_number,
+        SUM(quantity) AS quantity,
+        AVG(unit_price_kes) AS unit_price_kes,               -- assuming same price, use AVG
+        AVG(discount_rate) AS discount_rate,                 -- assuming same discount rate, use AVG
+        SUM(line_total_kes) AS line_total_kes,
+        SUM(ROUND(quantity * unit_price_kes * discount_rate, 2)) AS discount_amount_kes,
+        -- weighted average for unit price after discount
+        ROUND(SUM(quantity * unit_price_kes * (1 - discount_rate)) / SUM(quantity), 2) AS unit_price_after_discount_kes,
+        SUM(calculated_line_total) AS calculated_line_total,
+        MAX(order_prefix) AS order_prefix,
+        MAX(order_sequence_number) AS order_sequence_number,
+        -- keep discount_tier if all matching lines agree, otherwise flag as mixed
+        CASE
+            WHEN COUNT(DISTINCT discount_tier) = 1 THEN MAX(discount_tier)
+            ELSE 'Mixed Discount Tiers'
+        END AS discount_tier
+    FROM validated
+    WHERE quality_flag = 'Valid'
+    GROUP BY order_id, product_id
 )
 SELECT 
     -- Surrogate key
-    ROW_NUMBER() OVER(ORDER BY order_id)  AS order_line_key,
+    ROW_NUMBER() OVER(ORDER BY order_id, line_number)  AS order_line_key,
     
     -- Dimensions
     order_id,
@@ -66,11 +92,11 @@ SELECT
     
     -- Quantities and pricing
     quantity,
-    unit_price_kes,
-    discount_rate,
-    unit_price_after_discount_kes,
-    discount_amount_kes,
-    line_total_kes,
+    ROUND(unit_price_kes, 2) AS unit_price_kes,
+    ROUND(discount_rate, 2) AS discount_rate,
+    ROUND(unit_price_after_discount_kes, 2) AS unit_price_after_discount_kes,
+    ROUND(discount_amount_kes, 2) AS discount_amount_kes,
+    ROUND(line_total_kes, 2) AS line_total_kes,
     
     -- Validation
     calculated_line_total,
@@ -80,14 +106,10 @@ SELECT
     order_prefix,
     order_sequence_number,
     
-    -- Quality
-    quality_flag,
-    
     -- Audit
     GETDATE() AS etl_load_date,
     'silver.ecommerce_order_lines' AS etl_source
     
 INTO silver.ecommerce_order_lines
-FROM validated
-WHERE quality_flag = 'Valid'  -- Only include valid records
+FROM aggregated
 ORDER BY order_id, line_number
