@@ -13,7 +13,7 @@ INTO silver.sales_returns
 FROM [Blue_canopy].[silver].[pos_returns] spr
 LEFT JOIN [gold].[dim_product_bridge]  dpb
 ON spr.product_id = dpb.product_id
-WHERE NOT ([original_transaction_id] = 'TXN-2313019' AND [return_date] = '2024-09-30')
+--WHERE NOT ([original_transaction_id] = 'TXN-2313019' AND [return_date] = '2024-09-30')
 
 UNION ALL
 
