@@ -234,7 +234,7 @@ SELECT
     ,[unit_cost_kes]
     ,[return_date]
     ,[quantity_returned]
-    ,[refund_amount]
+    ,refund_amount = ABS([refund_amount]) 
     ,[net_quantity]
     ,[net_sales]
 INTO Blue_canopy.gold.fact_sales
