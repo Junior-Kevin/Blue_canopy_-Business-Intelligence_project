@@ -4,7 +4,7 @@ WITH main AS
      (SELECT  [campaign_id]
       ,[campaign_name]
       ,[campaign_type]
-      ,[channel]
+      ,CASE WHEN [channel] IS NULL THEN 'Digital' ELSE channel END AS channel
       ,CAST([start_date] AS DATE) start_date 
       ,CAST([end_date] AS DATE ) end_date 
       ,CAST([budget_kes] AS INT) budget_kes 
