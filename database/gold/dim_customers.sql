@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS Blue_canopy.gold.dim_customers;
 GO
 SELECT  ROW_NUMBER() OVER(order by registration_date) customer_key
-       ,crm.[customer_id]
+      ,crm.[customer_id]
       ,[full_name]
       ,[gender]
       ,[birth_date]
@@ -16,6 +16,8 @@ SELECT  ROW_NUMBER() OVER(order by registration_date) customer_key
       ,[age]
       ,[age_band]
       ,[phone]
+	  ,[home_county]
+      ,[primary_store_id]
       ,[town]
       ,[customer_segment]
       ,[acquisition_channel]
