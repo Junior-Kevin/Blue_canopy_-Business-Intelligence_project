@@ -1,5 +1,7 @@
 DROP TABLE IF EXISTS silver.gis_counties;
-SELECT [county]
+SELECT 
+        ROW_NUMBER() OVER(ORDER BY county) county_key
+       ,[county]
       ,CAST ([population] AS INT)  population
       ,CAST([avg_income_kes] AS INT) avg_income_kes
       ,CAST([latitude] AS FLOAT) latitude 
