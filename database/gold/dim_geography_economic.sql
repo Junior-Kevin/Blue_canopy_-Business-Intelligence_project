@@ -1,15 +1,14 @@
+
 USE Blue_canopy;
 GO
-DROP TABLE IF EXISTS gold.dim_geography_economic;
-GO
-WITH econ AS(
-SELECT ROW_NUMBER() OVER(PARTITION BY county ORDER BY date)flag
-      ,[economic_id]
+DROP TABLE IF EXISTS gold.dim_geo_economic;
+
+WITH main AS (
+SELECT ROW_NUMBER() OVER(PARTITION BY county ORDER BY date) flag
       ,[county]
-	  ,MAX(date) OVER(PARTITION BY county ORDER BY county)flag_date
+	  ,LEAD(county) OVER(PARTITION BY county ORDER BY date) leads
       ,[date]
-      ,[qtr]
-      ,[month]
+      ,[month_start_date]
       ,[gdp_growth_pct]
       ,[inflation_pct]
       ,[unemployment_pct]
@@ -17,21 +16,16 @@ SELECT ROW_NUMBER() OVER(PARTITION BY county ORDER BY date)flag
       ,[retail_sales_index]
       ,[fuel_price_kes]
       ,[usd_kes_rate]
+      ,[real_retail_sales_index]
+      ,[economic_health_score]
   FROM [Blue_canopy].[silver].[economic]
-  ),econ_flag AS (SELECT * FROM econ WHERE date = flag_date)
-  SELECT ROW_NUMBER() OVER(ORDER BY C.county) geo_sk 
-       ,C.[county]
-      ,[population]
-      ,[avg_income_kes]USE Blue_canopy;
-GO
-DROP TABLE IF EXISTS gold.dim_geography_economic;
-GO
-WITH econ AS(
-SELECT ROW_NUMBER() OVER(PARTITION BY county ORDER BY date)flag
-      ,[economic_id]
-      ,[county]
-	  ,MAX(date) OVER(PARTITION BY county ORDER BY county)flag_date
+  ) , recent_data AS (
+  SELECT * FROM main WHERE leads IS NULL)
+  ,historical_data AS (
+  SELECT  [county_key]
+      ,m.[county]
       ,[date]
+      ,[month_start_date]
       ,[gdp_growth_pct]
       ,[inflation_pct]
       ,[unemployment_pct]
@@ -39,37 +33,37 @@ SELECT ROW_NUMBER() OVER(PARTITION BY county ORDER BY date)flag
       ,[retail_sales_index]
       ,[fuel_price_kes]
       ,[usd_kes_rate]
-  FROM [Blue_canopy].[silver].[economic]
-  ),econ_flag AS (SELECT * FROM econ WHERE date = flag_date)
-  SELECT ROW_NUMBER() OVER(ORDER BY C.county) geo_sk 
-       ,C.[county]
+      ,[real_retail_sales_index]
+      ,[economic_health_score]
+      ,[population] = NULL
+      ,[avg_income_kes] = NULL
+	  FROM main m
+	  LEFT JOIN [Blue_canopy].[silver].[gis_counties] gc
+	  ON m.county = gc.county
+	  WHERE leads IS NOT NULL),
+recent_f  AS (
+  SELECT 
+       [county_key]
+      ,rd.[county]
+      ,[date]
+      ,[month_start_date]
+      ,[gdp_growth_pct]
+      ,[inflation_pct]
+      ,[unemployment_pct]
+      ,[consumer_confidence]
+      ,[retail_sales_index]
+      ,[fuel_price_kes]
+      ,[usd_kes_rate]
+      ,[real_retail_sales_index]
+      ,[economic_health_score]
       ,[population]
       ,[avg_income_kes]
-      ,[latitude]
-      ,[longitude]
-	  ,[gdp_growth_pct]
-      ,[inflation_pct]
-      ,[unemployment_pct]
-      ,[consumer_confidence]
-      ,[retail_sales_index]
-      ,[fuel_price_kes]
-      ,[usd_kes_rate]
-	  ,economic_as_of_date= E.date
-	  INTO gold.dim_geography_economic
-  FROM [Blue_canopy].[silver].[gis_counties] C
-  LEFT JOIN econ_flag E ON 
-  C.county = E.county
-      ,[latitude]
-      ,[longitude]
-	    ,[gdp_growth_pct]
-      ,[inflation_pct]
-      ,[unemployment_pct]
-      ,[consumer_confidence]
-      ,[retail_sales_index]
-      ,[fuel_price_kes]
-      ,[usd_kes_rate]
-	  ,economic_as_of_date= E.date
-	  INTO gold.dim_geography_economic
-  FROM [Blue_canopy].[silver].[gis_counties] C
-  LEFT JOIN econ_flag E ON 
-  C.county = E.county
+        FROM recent_data rd
+  INNER JOIN [Blue_canopy].[silver].[gis_counties] gc
+  ON rd.county = gc.county)
+  (SELECT *
+  INTO gold.dim_geo_economic
+  FROM historical_data
+  UNION ALL
+  SELECT * FROM recent_f)
+  ORDER BY 2,3
