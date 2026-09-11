@@ -6,8 +6,7 @@ SELECT  [interaction_id]
 	    '2023-12-25' ELSE interaction_date END AS DATE) interaction_date
       ,[channel]
       ,[issue_type]
-      ,CAST([resolution_time_minutes] AS INT) resolution_time_minutes
-      ,CAST([satisfaction_score] AS FLOAT) satisfaction_score
+      ,ABS(CAST([resolution_time_minutes] AS INT)) resolution_time_minutes
+      ,ABS(CAST([satisfaction_score] AS FLOAT)) satisfaction_score
 INTO silver.service_interactions
 FROM [Blue_canopy].[bronze].[service_interactions_raw]
-
