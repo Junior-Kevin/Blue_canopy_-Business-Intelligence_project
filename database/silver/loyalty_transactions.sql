@@ -3,7 +3,7 @@ GO
 WITH base AS (
     SELECT 
         [transaction_id],
-        [customer_id],
+        LEFT([customer_id],11) [customer_id],
           CAST(CASE
 		    WHEN [date] = '2023-13-45' THEN '2023-12-25' 
 				ELSE date END 
@@ -12,7 +12,9 @@ WITH base AS (
         ABS(CAST([points_redeemed] AS INT)) AS points_redeemed,
         CAST([points_balance] AS INT) AS points_balance,
         LOWER(TRIM([transaction_type])) AS transaction_type,
-        [order_id]
+       order_id =  CASE WHEN order_id LIKE 'TXN%' THEN 
+	CONCAT('TXN-',TRIM(SUBSTRING(order_id , CHARINDEX('-',order_id)+1 , 20))) 
+	ELSE order_id END
     FROM [Blue_canopy].[bronze].[loyalty_transactions_raw]
     WHERE [transaction_id] IS NOT NULL 
       AND [customer_id] IS NOT NULL
