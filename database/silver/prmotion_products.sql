@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS silver.promotion_products;
+
 WITH base AS (
     SELECT 
         [promotion_id],
@@ -53,7 +55,7 @@ SELECT
     etl_load_date,
     etl_source
     
--- INTO silver.promotion_products
+INTO silver.promotion_products
 FROM cleaned
 WHERE product_id IS NOT NULL  -- Filter out NULL product_ids
   AND product_id != 'NULL'     -- Filter out string 'NULL'
