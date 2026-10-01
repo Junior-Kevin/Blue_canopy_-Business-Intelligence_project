@@ -1,7 +1,7 @@
 
 USE Blue_canopy;
 GO
-DROP TABLE IF EXISTS gold.dim_geo_economic;
+DROP TABLE IF EXISTS gold.fact_geo_economic;
 
 WITH main AS (
 SELECT ROW_NUMBER() OVER(PARTITION BY county ORDER BY date) flag
@@ -35,8 +35,8 @@ SELECT ROW_NUMBER() OVER(PARTITION BY county ORDER BY date) flag
       ,[usd_kes_rate]
       ,[real_retail_sales_index]
       ,[economic_health_score]
-      ,[population] = NULL
-      ,[avg_income_kes] = NULL
+      ,[population] 
+      ,[avg_income_kes] 
 	  FROM main m
 	  LEFT JOIN [Blue_canopy].[silver].[gis_counties] gc
 	  ON m.county = gc.county
@@ -62,7 +62,7 @@ recent_f  AS (
   INNER JOIN [Blue_canopy].[silver].[gis_counties] gc
   ON rd.county = gc.county)
   (SELECT *
-  INTO gold.dim_geo_economic
+  INTO gold.fact_geo_economic
   FROM historical_data
   UNION ALL
   SELECT * FROM recent_f)
