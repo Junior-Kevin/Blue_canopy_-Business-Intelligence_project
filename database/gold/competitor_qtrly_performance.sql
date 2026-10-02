@@ -1,5 +1,5 @@
 
-DROP TABLE IF EXISTS Blue_canopy.gold.competitor_qtrly_performance;
+DROP TABLE IF EXISTS Blue_canopy.gold.fact_competitor_qtrly_performance;
 GO
 SELECT  [comp_qtr_key]
 	  ,gdc.competitor_key
@@ -10,7 +10,7 @@ SELECT  [comp_qtr_key]
       ,[quarter]
       ,[revenue_kes]
       ,[market_share_pct]
-  INTO  Blue_canopy.gold.competitor_qtrly_performance
+  INTO  gold.fact_competitor_qtrly_performance
   FROM [Blue_canopy].[silver].[competitor_quarterly] cq
   LEFT JOIN [Blue_canopy].[silver].[competitor_stores] cs
   ON cq.competitor_store_id = cs.competitor_store_id
