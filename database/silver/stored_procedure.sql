@@ -1,12 +1,12 @@
-USE [Blue_canopy];
+USE [Blue_canopy]
+GO
+/****** Object:  StoredProcedure [silver].[usp_LoadSilverLayer]    Script Date: 10/2/2026 2:21:13 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
 GO
 
-SET ANSI_NULLS ON;
-GO
-SET QUOTED_IDENTIFIER ON;
-GO
-
-CREATE OR ALTER PROCEDURE silver.usp_LoadSilverLayer
+ALTER   PROCEDURE [silver].[usp_LoadSilverLayer]
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -1242,18 +1242,23 @@ BEGIN
     -- ============================================================
     PRINT 'Loading silver.gis_locations...';
     DROP TABLE IF EXISTS silver.gis_locations;
-
-    SELECT
+	WITH main AS (
+    SELECT ROW_NUMBER() OVER(PARTITION BY town ORDER BY location_id) flag,
         CAST(location_id   AS NVARCHAR(50))  AS location_id,
         CAST(county        AS NVARCHAR(100)) AS county,
+		CAST(town          AS NVARCHAR(100)) AS town,
         CAST(location_name AS NVARCHAR(200)) AS location_name,
         CAST(location_type AS NVARCHAR(50))  AS location_type,
         CAST(latitude      AS DECIMAL(9,6))  AS latitude,
         CAST(longitude     AS DECIMAL(9,6))  AS longitude,
         CAST(accessibility_score AS DECIMAL(9,4)) AS accessibility_score
-    INTO silver.gis_locations
-    FROM bronze.gis_locations_raw;
-
+    FROM bronze.gis_locations_raw) 
+	SELECT location_id,county, town,location_name,
+	  latitude,longitude, accessibility_score
+	  INTO silver.gis_locations
+	  FROM main 
+	  WHERE flag = 1
+	  ;
 
     -- ============================================================
     -- 21. silver.loyalty_transactions
@@ -2058,7 +2063,3 @@ BEGIN
     PRINT CONCAT('Silver layer loaded successfully in ',
                  DATEDIFF(SECOND, @StartTime, SYSDATETIME()), ' seconds.');
 END;
-GO
-
-PRINT 'silver.usp_LoadSilverLayer deployed.';
-GO
