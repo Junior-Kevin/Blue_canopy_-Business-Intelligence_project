@@ -9,10 +9,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY hr.employee_id) employee_sk
       ,email=[generated_email]
       ,[gender]
       ,[job_title]
-      ,CASE
-	      WHEN store_id IS NULL THEN 'HQ' ELSE
-		  SUBSTRING(store_id,1,9) 
-	   END store_id
+      ,store_id
       ,[valid_from]
       ,[birth_date]
 	  ,[age]
@@ -38,7 +35,8 @@ SELECT ROW_NUMBER() OVER(ORDER BY hr.employee_id) employee_sk
       ,[hire_season]
       ,[years_since_hire]
       ,[hire_cohort]
-	 INTO gold.dim_employee
+	  INTO gold.dim_employee
   FROM [Blue_canopy].[silver].[hr] hr
   LEFT JOIN [gold].[dim_employee_bridge] eb
   ON hr.employee_id = eb.employee_id
+
