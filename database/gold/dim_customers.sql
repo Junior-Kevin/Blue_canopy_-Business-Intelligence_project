@@ -5,14 +5,7 @@ SELECT  ROW_NUMBER() OVER(order by registration_date) customer_key
       ,[full_name]
       ,[gender]
       ,[birth_date]
-	  ,CASE 
-	        WHEN YEAR(birth_date) BETWEEN 2013 AND YEAR(GETDATE()) THEN 'Gen Alpha'
-			WHEN YEAR(birth_date) BETWEEN 1997 AND 2012 THEN 'Gen Z'
-			WHEN YEAR(birth_date) BETWEEN 1981 AND 1996 THEN 'Millennial'
-			WHEN YEAR(birth_date) BETWEEN 1965 AND 1980 THEN 'Gen X'
-			WHEN YEAR(birth_date) BETWEEN 1945 AND 1964 THEN 'Boomer'
-			ELSE 'Other/Unknown'
-		END AS generation
+	  ,generation
       ,[age]
       ,[age_band]
       ,[phone]
