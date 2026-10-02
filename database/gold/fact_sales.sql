@@ -61,6 +61,7 @@ pos_combined AS (
         , sb.store_key
         , dc.[customer_key]
         , eb.employee_key AS cashier_key
+		,ss.product_id
         , pb.[product_key]
         , sbb.supplier_key
         , 'on_counter' AS delivery_address
@@ -98,6 +99,7 @@ ecom_final AS (
         , [order_line_key]
         , ol.[order_id]
         , [line_number]
+		,ol.product_id
         , pb.[product_key]
         , sbb.[supplier_key]
         , dc.[customer_key]
@@ -137,6 +139,7 @@ ecom_combined AS (
         , store_key
         , [customer_key]
         , 0 AS cashier_key
+		,product_id
         , [product_key]
         , [supplier_key]
         , [delivery_address]
@@ -210,7 +213,7 @@ sales_with_returns AS (
     FROM combined_sales fs
     LEFT JOIN [Blue_canopy].[silver].[sales_returns] sr
         ON fs.transaction_id = sr.original_transaction_id
-        AND fs.product_key = sr.product_key
+        AND fs.product_id = sr.product_id
 )
 SELECT 
     [sales_sk]
