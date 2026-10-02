@@ -188,6 +188,7 @@ IF OBJECT_ID('bronze.gis_locations_raw','U') IS NOT NULL
 CREATE TABLE bronze.gis_locations_raw (
     location_id         NVARCHAR(100) NULL,
     county              NVARCHAR(100) NULL,
+    town                 NVARCHAR(100) NULL,
     location_name       NVARCHAR(100) NULL,
     location_type       NVARCHAR(100) NULL,
     latitude            NVARCHAR(255) NULL,   -- originally FLOAT
