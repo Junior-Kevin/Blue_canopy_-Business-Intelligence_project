@@ -1,6 +1,6 @@
 USE [Blue_canopy]
 GO
-/****** Object:  StoredProcedure [silver].[usp_LoadSilverLayer]    Script Date: 10/2/2026 2:21:13 PM ******/
+/****** Object:  StoredProcedure [silver].[usp_LoadSilverLayer]    Script Date: 10/2/2026 6:42:14 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -136,7 +136,7 @@ BEGIN
     -- ============================================================
     -- 5. silver.crm
     --    Customer master with cleaned names, phones, dates,
-    --    plus tenure and churn analytics.
+    --    plus tenure, churn, and generation analytics.
     -- ============================================================
     PRINT 'Loading silver.crm...';
     DROP TABLE IF EXISTS silver.crm;
@@ -156,6 +156,7 @@ BEGIN
         birth_date                DATE          NULL,
         age                       INT           NULL,
         age_band                  VARCHAR(20)   NULL,
+        generation                VARCHAR(20)   NULL,   -- Gen Alpha / Gen Z / Millennial / Gen X / Boomer / Other
         phone                     VARCHAR(50)   NULL,
         email                     VARCHAR(255)  NULL,
         county                    VARCHAR(100)  NULL,
@@ -288,6 +289,16 @@ BEGIN
                 WHEN DATEDIFF(YEAR, dc.clean_birth_date, GETDATE()) BETWEEN 50 AND 64 THEN '50-64'
                 ELSE '65+'
             END AS age_band,
+            -- Generation derived from birth year
+            CASE
+                WHEN dc.clean_birth_date IS NULL THEN 'Unknown'
+                WHEN YEAR(dc.clean_birth_date) BETWEEN 2013 AND YEAR(GETDATE()) THEN 'Gen Alpha'
+                WHEN YEAR(dc.clean_birth_date) BETWEEN 1997 AND 2012 THEN 'Gen Z'
+                WHEN YEAR(dc.clean_birth_date) BETWEEN 1981 AND 1996 THEN 'Millennial'
+                WHEN YEAR(dc.clean_birth_date) BETWEEN 1965 AND 1980 THEN 'Gen X'
+                WHEN YEAR(dc.clean_birth_date) BETWEEN 1945 AND 1964 THEN 'Boomer'
+                ELSE 'Other/Unknown'
+            END AS generation,
             -- Normalize Kenyan phone numbers to local format
             CASE
                 WHEN LEN(dc.phone) = 9  AND dc.phone LIKE '7%'    THEN CONCAT('07', dc.phone)
@@ -327,6 +338,7 @@ BEGIN
     )
     INSERT INTO silver.crm (
         customer_id, first_name, last_name, full_name, gender, birth_date, age, age_band,
+        generation,
         phone, email, county, town, customer_segment, acquisition_channel,
         registration_date, churn_date, loyalty_tier, communication_preferences, feedback_score,
         home_county, primary_store_id, is_churned, tenure_days, tenure_months, tenure_band,
@@ -335,6 +347,7 @@ BEGIN
     )
     SELECT
         customer_id, first_name, last_name, full_name, gender, birth_date, age, age_band,
+        generation,
         phone, email, county, town, customer_segment, acquisition_channel,
         registration_date, churn_date, loyalty_tier, communication_preferences, feedback_score,
         home_county, primary_store_id, is_churned, tenure_days, tenure_months, tenure_band,
@@ -900,7 +913,11 @@ BEGIN
     ;WITH DateCleaned AS (
         SELECT
             employee_id, first_name, last_name, gender, department, job_title,
-            salary, store_id, shift_pattern,
+            salary,
+			CASE
+	           WHEN store_id IS NULL THEN 'HQ' ELSE
+		       SUBSTRING(store_id,1,9) 
+	        END store_id, shift_pattern,
             -- Convert date strings safely; sentinel value -> NULL
             TRY_CAST(CASE WHEN valid_from = '2023-13-45' OR valid_from LIKE '%[^0-9-]%' THEN NULL ELSE valid_from END AS DATE) AS valid_from,
             TRY_CAST(CASE WHEN valid_to   = '2023-13-45' OR valid_to   LIKE '%[^0-9-]%' THEN NULL ELSE valid_to   END AS DATE) AS valid_to,
@@ -1640,80 +1657,115 @@ BEGIN
     WHERE product_id IS NOT NULL AND product_id != 'NULL';
 
 
-    -- ============================================================
-    -- 26. silver.products
-    --     Product SCD-2 view. The first row per product gets a
-    --     fixed valid_from (2016-01-01); later rows use the raw
-    --     introduction_date.
-    -- ============================================================
-    PRINT 'Loading silver.products...';
-    DROP TABLE IF EXISTS silver.products;
+		-- ============================================================
+		-- SILVER: silver.products
+		-- SCD-2 product dimension source
+		-- ============================================================
+		DROP TABLE IF EXISTS silver.products;
+		CREATE TABLE silver.products (
+			product_sk          INT IDENTITY(1,1) PRIMARY KEY,
+			product_id          NVARCHAR(50)  NOT NULL,
+			product_name        NVARCHAR(200) NULL,
+			brand               NVARCHAR(100) NULL,
+			category            NVARCHAR(100) NULL,
+			subcategory         NVARCHAR(100) NULL,
+			supplier_id         NVARCHAR(50)  NULL,
+			unit_cost_kes       DECIMAL(18,2) NULL,
+			retail_price_kes    DECIMAL(18,2) NULL,
+			margin_percentage   DECIMAL(9,2)  NULL,
+			margin_band         VARCHAR(20)   NULL,
+			introduction_date   DATE          NULL,
+			valid_from          DATE          NULL,
+			valid_to            DATE          NULL,
+			discontinued_date   DATE          NULL,
+			is_active           BIT           NULL,
+			is_current_version  BIT           NULL
+		);
+		;WITH main AS (
+			SELECT
+				ROW_NUMBER() OVER (PARTITION BY 
+					CASE WHEN product_id LIKE '%DUP' THEN LEFT(product_id, 9) ELSE product_id END 
+					ORDER BY valid_from) AS flag,
+				CASE WHEN product_id LIKE '%DUP' THEN LEFT(product_id, 9) ELSE product_id END AS product_id,
+				-- Detect whether this is the last version for this product
+				LEAD(CASE WHEN product_id LIKE '%DUP' THEN LEFT(product_id, 9) ELSE product_id END)
+					OVER (PARTITION BY 
+						CASE WHEN product_id LIKE '%DUP' THEN LEFT(product_id, 9) ELSE product_id END 
+						ORDER BY valid_from) AS next_product_id,
 
-    CREATE TABLE silver.products (
-        product_sk          INT IDENTITY(1,1) PRIMARY KEY,
-        product_id          NVARCHAR(50)  NOT NULL,
-        product_name        NVARCHAR(200) NULL,
-        brand               NVARCHAR(100) NULL,
-        category            NVARCHAR(100) NULL,
-        subcategory         NVARCHAR(100) NULL,
-        supplier_id         NVARCHAR(50)  NULL,
-        unit_cost_kes       DECIMAL(18,2) NULL,
-        retail_price_kes    DECIMAL(18,2) NULL,
-        margin_percentage   DECIMAL(9,2)  NULL,
-        margin_band         VARCHAR(20)   NULL,
-        introduction_date   DATE          NULL,
-        valid_from          DATE          NULL,
-        valid_to            DATE          NULL,
-        discontinued_date   DATE          NULL,
-        is_active           BIT           NULL,
-        is_current_version  BIT           NULL
-    );
+				product_name, brand, category, subcategory,
 
-    ;WITH main AS (
-        SELECT
-            -- Rank rows per product by valid_from to identify the first
-            ROW_NUMBER() OVER (PARTITION BY product_id ORDER BY valid_from) AS flag,
-            CASE WHEN product_id  LIKE '%DUP' THEN LEFT(product_id, 9)  ELSE product_id  END AS product_id,
-            product_name, brand, category, subcategory,
-            CASE WHEN supplier_id LIKE '%DUP' THEN LEFT(supplier_id, 8) ELSE supplier_id END AS supplier_id,
-            CAST(unit_cost_kes    AS DECIMAL(18,2)) AS unit_cost_kes,
-            CAST(retail_price_kes AS DECIMAL(18,2)) AS retail_price_kes,
-            CAST(margin_percentage AS DECIMAL(9,2)) AS margin_percentage,
-            CASE
-                WHEN CAST(margin_percentage AS DECIMAL(9,2)) < 20 THEN 'low'
-                WHEN CAST(margin_percentage AS DECIMAL(9,2)) BETWEEN 20 AND 40 THEN 'medium'
-                WHEN CAST(margin_percentage AS DECIMAL(9,2)) > 40 THEN 'high' END AS margin_band,
-            CAST(CASE WHEN valid_from IS NULL THEN GETDATE()
-                      WHEN valid_from = '2023-13-45' THEN '2023-12-25'
-                      ELSE valid_from END AS DATE) AS valid_from,
-            is_active,
-            CAST(CASE WHEN introduction_date IS NULL THEN GETDATE()
-                      WHEN introduction_date = '2023-13-45' THEN '2023-12-25'
-                      ELSE introduction_date END AS DATE) AS introduction_date,
-            CAST(CASE WHEN valid_to IS NULL THEN GETDATE()
-                      WHEN valid_to = '2023-13-45' THEN '2023-12-25'
-                      ELSE valid_to END AS DATE) AS valid_to,
-            CAST(CASE WHEN discontinued_date IS NULL THEN GETDATE()
-                      WHEN discontinued_date = '2023-13-45' THEN '2023-12-25'
-                      ELSE discontinued_date END AS DATE) AS discontinued_date,
-            CASE WHEN valid_to IS NULL THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT) END AS is_current_version
-        FROM bronze.products_raw
-    )
-    INSERT INTO silver.products (
-        product_id, product_name, brand, category, subcategory, supplier_id,
-        unit_cost_kes, retail_price_kes, margin_percentage, margin_band,
-        introduction_date, valid_from, valid_to, discontinued_date,
-        is_active, is_current_version
-    )
-    SELECT
-        product_id, product_name, brand, category, subcategory, supplier_id,
-        unit_cost_kes, retail_price_kes, margin_percentage, margin_band,
-        CASE WHEN flag = 1 THEN CAST('2016-01-01' AS DATE) ELSE introduction_date END,
-        CASE WHEN flag = 1 THEN CAST('2016-01-01' AS DATE) ELSE valid_from END,
-        valid_to, discontinued_date, is_active, is_current_version
-    FROM main;
+				CASE WHEN supplier_id LIKE '%DUP' THEN LEFT(supplier_id, 8) ELSE supplier_id END AS supplier_id_clean,
 
+				CAST(unit_cost_kes     AS DECIMAL(18,2)) AS unit_cost_kes,
+				CAST(retail_price_kes  AS DECIMAL(18,2)) AS retail_price_kes,
+				CAST(margin_percentage AS DECIMAL(9,2))  AS margin_percentage,
 
+				CASE
+					WHEN CAST(margin_percentage AS DECIMAL(9,2)) < 20 THEN 'low'
+					WHEN CAST(margin_percentage AS DECIMAL(9,2)) BETWEEN 20 AND 40 THEN 'medium'
+					WHEN CAST(margin_percentage AS DECIMAL(9,2)) > 40 THEN 'high'
+				END AS margin_band,
+
+				CAST(CASE WHEN valid_from IS NULL THEN GETDATE()
+						  WHEN valid_from = '2023-13-45' THEN '2023-12-25'
+						  ELSE valid_from END AS DATE) AS valid_from_clean,
+
+				CAST(CASE WHEN introduction_date IS NULL THEN GETDATE()
+						  WHEN introduction_date = '2023-13-45' THEN '2023-12-25'
+						  ELSE introduction_date END AS DATE) AS introduction_date_clean,
+
+				CAST(CASE WHEN valid_to IS NULL THEN GETDATE()
+						  WHEN valid_to = '2023-13-45' THEN '2023-12-25'
+						  ELSE valid_to END AS DATE) AS valid_to_clean,
+
+				CAST(CASE WHEN discontinued_date IS NULL THEN GETDATE()
+						  WHEN discontinued_date = '2023-13-45' THEN '2023-12-25'
+						  ELSE discontinued_date END AS DATE) AS discontinued_date_clean,
+
+				is_active,
+				CASE WHEN valid_to IS NULL THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT) END AS is_current_version
+
+			FROM bronze.products_raw
+		)
+
+		INSERT INTO silver.products (
+			product_id, product_name, brand, category, subcategory, supplier_id,
+			unit_cost_kes, retail_price_kes, margin_percentage, margin_band,
+			introduction_date, valid_from, valid_to, discontinued_date,
+			is_active, is_current_version
+		)
+		SELECT
+			product_id,
+			product_name,
+			brand,
+			category,
+			subcategory,
+
+			CASE 
+				WHEN supplier_id_clean IS NULL AND flag = 1 THEN 'SUP-0018'
+				WHEN supplier_id_clean IS NULL AND flag = 2 THEN 'SUP-0060'
+				WHEN supplier_id_clean IS NULL AND flag = 3 THEN 'SUP-0145'
+				WHEN supplier_id_clean IS NULL AND flag = 4 THEN 'SUP-0178'
+				ELSE supplier_id_clean
+			END AS supplier_id,
+
+			unit_cost_kes,
+			retail_price_kes,
+			margin_percentage,
+			margin_band,
+
+			CASE WHEN flag = 1 THEN CAST('2016-01-01' AS DATE) 
+				 ELSE introduction_date_clean END AS introduction_date,
+
+			CASE WHEN flag = 1 THEN CAST('2016-01-01' AS DATE) 
+				 ELSE valid_from_clean END AS valid_from,
+			CASE WHEN next_product_id IS NULL THEN CAST(GETDATE() AS DATE)
+				 ELSE valid_to_clean END AS valid_to,
+			discontinued_date_clean,
+			is_active,
+			is_current_version
+		FROM main;
     -- ============================================================
     -- 27. silver.promotions
     --     Promotion headers with discount description and status.
@@ -1768,7 +1820,7 @@ BEGIN
         FROM base
     )
     SELECT
-        CAST(promotion_id AS NVARCHAR(50)) AS promotion_key,
+        ROW_NUMBER() OVER( ORDER BY promotion_id) AS promotion_key,
         CAST(promotion_id AS NVARCHAR(50)) AS promotion_id,
         CAST(promotion_name AS NVARCHAR(200)) AS promotion_name,
         promotion_short_name,
