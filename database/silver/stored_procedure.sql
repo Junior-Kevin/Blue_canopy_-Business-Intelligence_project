@@ -1,6 +1,6 @@
 USE [Blue_canopy]
 GO
-/****** Object:  StoredProcedure [silver].[usp_LoadSilverLayer]    Script Date: 10/2/2026 6:42:14 PM ******/
+/****** Object:  StoredProcedure [silver].[usp_LoadSilverLayer]    Script Date: 10/4/2026 5:11:29 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1125,52 +1125,68 @@ BEGIN
     ),
     cleaned AS (
         SELECT
-            movement_id, movement_date,
+            movement_id,
+            movement_date,
+            -- Strip '-DUP' suffix from store_id
             CASE WHEN store_id LIKE '%-DUP%'
                  THEN LEFT(store_id, CHARINDEX('-DUP', store_id) - 1)
                  ELSE store_id END AS store_id_clean,
-            product_id, movement_type,
+            -- Strip '-DUP' suffix from product_id
+            CASE WHEN product_id LIKE '%-DUP'
+                 THEN REPLACE(product_id, '-DUP', '')
+                 ELSE product_id END AS product_id_clean,
+            movement_type,
             ABS(quantity) AS quantity_absolute,
             quantity AS quantity_raw,
-            -- Outbound movements become negative
-            CASE WHEN movement_type IN ('SALE','TRANSFER_OUT','ADJUSTMENT_OUT')
-                 THEN -ABS(quantity) ELSE ABS(quantity) END AS quantity_signed,
+            -- Signed quantity: outbound movements are negative, inbound positive.
+            -- ADJUSTMENT preserves the source sign (can be either direction).
+            CASE
+                WHEN movement_type IN ('SALE','TRANSFER_OUT','ADJUSTMENT_OUT','DAMAGE','LOSS')
+                    THEN -ABS(quantity)
+                WHEN movement_type = 'ADJUSTMENT'
+                    THEN quantity
+                ELSE ABS(quantity)
+            END AS quantity_signed,
             unit_cost_kes,
             CAST(ABS(quantity) * unit_cost_kes AS DECIMAL(18,2)) AS movement_value_kes,
-            YEAR(movement_date)  AS movement_year,
-            MONTH(movement_date) AS movement_month,
+            YEAR(movement_date)              AS movement_year,
+            MONTH(movement_date)             AS movement_month,
             DATEPART(QUARTER, movement_date) AS movement_quarter,
             FORMAT(movement_date, 'yyyy-MM') AS movement_year_month,
             FORMAT(movement_date, 'MMMM')    AS movement_month_name,
             CASE
-                WHEN movement_type IN ('SALE','TRANSFER_OUT','ADJUSTMENT_OUT') AND quantity > 0 THEN 'Positive quantity for outbound'
-                WHEN movement_type IN ('RECEIPT','TRANSFER_IN','ADJUSTMENT_IN','RETURN') AND quantity < 0 THEN 'Negative quantity for inbound'
-                ELSE 'Valid sign' END AS sign_validation_flag
+                WHEN movement_type IN ('SALE','TRANSFER_OUT','ADJUSTMENT_OUT','DAMAGE','LOSS')
+                     AND quantity > 0
+                    THEN 'Positive quantity for outbound'
+                WHEN movement_type IN ('RECEIPT','TRANSFER_IN','ADJUSTMENT_IN','RETURN')
+                     AND quantity < 0
+                    THEN 'Negative quantity for inbound'
+                ELSE 'Valid sign'
+            END AS sign_validation_flag
         FROM base
     ),
     with_running AS (
         SELECT
             *,
-            -- Stock level per product-store at each movement
+            -- Stock level per product-store at each movement.
+            -- Partitioned by cleaned product_id so '-DUP' variants share a ledger.
             SUM(quantity_signed) OVER (
-                PARTITION BY product_id, store_id_clean
+                PARTITION BY product_id_clean, store_id_clean
                 ORDER BY movement_date, movement_id
                 ROWS UNBOUNDED PRECEDING
             ) AS running_quantity,
+
             -- Cumulative flow per product across all stores
             SUM(quantity_signed) OVER (
-                PARTITION BY product_id
+                PARTITION BY product_id_clean
                 ORDER BY movement_date, movement_id
                 ROWS UNBOUNDED PRECEDING
             ) AS cumulative_sum_by_product,
-            SUM(CAST(quantity_raw AS DECIMAL(18,4))) OVER (
-                PARTITION BY product_id
-                ORDER BY movement_date, movement_id
-                ROWS UNBOUNDED PRECEDING
-            ) AS running_total_raw_quantity,
-            -- Rolling 3-movement demand velocity
+
+            -- Rolling 3-movement demand velocity, per store.
+            -- Sums signed quantities over the current and previous 2 movements.
             SUM(quantity_signed) OVER (
-                PARTITION BY product_id
+                PARTITION BY product_id_clean, store_id_clean
                 ORDER BY movement_date, movement_id
                 ROWS BETWEEN 2 PRECEDING AND CURRENT ROW
             ) AS moving_sum_3_transactions
@@ -1180,42 +1196,48 @@ BEGIN
         CAST(CONCAT(movement_id, '_', FORMAT(movement_date, 'yyyyMMdd')) AS NVARCHAR(100)) AS inventory_movement_key,
         CAST(movement_id AS NVARCHAR(50)) AS movement_id,
         movement_date,
-        CAST(store_id_clean AS NVARCHAR(50)) AS store_id,
-        CAST(product_id AS NVARCHAR(50)) AS product_id,
-        CAST(movement_type AS NVARCHAR(50)) AS movement_type,
+        CAST(store_id_clean   AS NVARCHAR(50)) AS store_id,
+        CAST(product_id_clean AS NVARCHAR(50)) AS product_id,
+        CAST(movement_type    AS NVARCHAR(50)) AS movement_type,
         CAST(quantity_signed   AS DECIMAL(18,2)) AS quantity,
         CAST(quantity_absolute AS DECIMAL(18,2)) AS quantity_absolute,
-        unit_cost_kes, movement_value_kes,
-        CAST(running_quantity AS DECIMAL(18,2)) AS running_quantity,
-        CAST(cumulative_sum_by_product AS DECIMAL(18,2)) AS cumulative_sum_by_product,
-        CAST(running_total_raw_quantity AS DECIMAL(18,2)) AS running_total_raw_quantity,
-        CAST(moving_sum_3_transactions AS DECIMAL(18,2)) AS moving_sum_3_transactions,
+        unit_cost_kes,
+        movement_value_kes,
+        CAST(running_quantity            AS DECIMAL(18,2)) AS running_quantity,
+        CAST(cumulative_sum_by_product   AS DECIMAL(18,2)) AS cumulative_sum_by_product,
+        CAST(moving_sum_3_transactions   AS DECIMAL(18,2)) AS moving_sum_3_transactions,
         CAST(CASE
-            WHEN running_quantity < 0 THEN 'Negative stock alert'
-            WHEN running_quantity = 0 THEN 'Zero stock'
-            WHEN running_quantity BETWEEN 1 AND 50 THEN 'Low stock'
-            WHEN running_quantity BETWEEN 51 AND 200 THEN 'Adequate stock'
-            WHEN running_quantity > 200 THEN 'Excess stock'
-            ELSE 'Unknown' END AS VARCHAR(30)) AS inventory_status,
+            WHEN running_quantity < 0                    THEN 'Negative stock alert'
+            WHEN running_quantity = 0                    THEN 'Zero stock'
+            WHEN running_quantity BETWEEN 1 AND 50       THEN 'Low stock'
+            WHEN running_quantity BETWEEN 51 AND 200     THEN 'Adequate stock'
+            WHEN running_quantity > 200                  THEN 'Excess stock'
+            ELSE 'Unknown'
+        END AS VARCHAR(30)) AS inventory_status,
         CAST(CASE
-            WHEN moving_sum_3_transactions > 100 THEN 'High demand - Reorder now'
+            WHEN moving_sum_3_transactions > 100         THEN 'High demand - Reorder now'
             WHEN moving_sum_3_transactions BETWEEN 30 AND 100 THEN 'Normal demand'
-            WHEN moving_sum_3_transactions BETWEEN 1 AND 29 THEN 'Low demand - Reduce stock'
-            WHEN moving_sum_3_transactions = 0 THEN 'No recent activity'
-            ELSE 'Insufficient data' END AS VARCHAR(30)) AS demand_velocity,
+            WHEN moving_sum_3_transactions BETWEEN 1 AND 29   THEN 'Low demand - Reduce stock'
+            WHEN moving_sum_3_transactions = 0           THEN 'No recent activity'
+            ELSE 'Insufficient data'
+        END AS VARCHAR(30)) AS demand_velocity,
         movement_year, movement_month, movement_quarter,
-        CAST(movement_year_month AS VARCHAR(7)) AS movement_year_month,
+        CAST(movement_year_month AS VARCHAR(7))  AS movement_year_month,
         CAST(movement_month_name AS VARCHAR(20)) AS movement_month_name,
         CAST(sign_validation_flag AS VARCHAR(50)) AS sign_validation_flag,
         CAST(CASE
             WHEN movement_id IS NULL THEN 'Missing movement ID'
             WHEN store_id_clean IS NULL OR store_id_clean = '' THEN 'Missing store'
-            WHEN product_id IS NULL OR product_id = '' THEN 'Missing product'
-            WHEN movement_type NOT IN ('SALE','RECEIPT','TRANSFER_IN','TRANSFER_OUT','ADJUSTMENT_IN','ADJUSTMENT_OUT','RETURN') THEN 'Invalid movement type'
+            WHEN product_id_clean IS NULL OR product_id_clean = '' THEN 'Missing product'
+            WHEN movement_type NOT IN ('SALE','RECEIPT','TRANSFER_IN','TRANSFER_OUT',
+                                       'ADJUSTMENT','ADJUSTMENT_IN','ADJUSTMENT_OUT',
+                                       'DAMAGE','LOSS','RETURN')
+                THEN 'Invalid movement type'
             WHEN quantity_absolute IS NULL OR quantity_absolute = 0 THEN 'Zero/null quantity'
             WHEN unit_cost_kes IS NULL OR unit_cost_kes <= 0 THEN 'Invalid unit cost'
             WHEN running_quantity < 0 THEN 'Negative inventory'
-            ELSE 'Valid' END AS VARCHAR(50)) AS quality_flag,
+            ELSE 'Valid'
+        END AS VARCHAR(50)) AS quality_flag,
         GETDATE() AS etl_load_date,
         CAST('bronze.inventory_movements_raw' AS NVARCHAR(100)) AS etl_source
     INTO silver.inventory_movements
@@ -1229,28 +1251,94 @@ BEGIN
     PRINT 'Loading silver.inventory_snapshots...';
     DROP TABLE IF EXISTS silver.inventory_snapshots;
 
-    SELECT
-        ROW_NUMBER() OVER (ORDER BY snapshot_date, store_id, product_id) AS inventory_key,
-        snapshot_date,
-        CAST(store_id   AS NVARCHAR(50)) AS store_id,
-        CAST(product_id AS NVARCHAR(50)) AS product_id,
-        on_hand_quantity,
-        CAST(reorder_point AS DECIMAL(18,2)) AS reorder_point,
-        safety_stock
-    INTO silver.inventory_snapshots
-    FROM (
+    ;WITH cleaned AS (
         SELECT
-            CAST(CASE WHEN snapshot_date = '2023-13-45' THEN '2023-12-25' ELSE snapshot_date END AS DATE) AS snapshot_date,
-            CASE WHEN store_id LIKE '%-DUP%'
-                 THEN LEFT(store_id, CHARINDEX('-DUP', store_id) - 1)
-                 ELSE store_id END AS store_id,
-            CASE WHEN product_id LIKE '%DUP' THEN LEFT(product_id, 9) ELSE product_id END AS product_id,
+            -- Handle date sentinel
+            CAST(CASE 
+                WHEN snapshot_date = '2023-13-45' THEN '2023-12-25' 
+                ELSE snapshot_date 
+            END AS DATE) AS snapshot_date_clean,
+
+            -- Strip '-DUP' suffix from store_id
+            CAST(CASE 
+                WHEN store_id LIKE '%-DUP%' 
+                    THEN LEFT(store_id, CHARINDEX('-DUP', store_id) - 1)
+                ELSE store_id 
+            END AS NVARCHAR(50)) AS store_id_clean,
+
+            -- Strip '-DUP' suffix from product_id (exact removal, not position-based)
+            CAST(CASE 
+                WHEN product_id LIKE '%-DUP' 
+                    THEN REPLACE(product_id, '-DUP', '')
+                ELSE product_id 
+            END AS NVARCHAR(50)) AS product_id_clean,
+
             CAST(on_hand_quantity AS INT) AS on_hand_quantity,
             CAST(reorder_point    AS DECIMAL(18,2)) AS reorder_point,
             CAST(safety_stock     AS INT) AS safety_stock
+
         FROM bronze.inventory_snapshots_raw
-        WHERE snapshot_date NOT LIKE '%DUP'
-    ) t;
+        -- Only filter rows where the date itself carries the -DUP suffix
+        WHERE snapshot_date NOT LIKE '%-DUP'
+    ),
+
+    -- Deduplicate on the natural key: keep the row with the highest on_hand_quantity.
+    -- (If two rows exist for the same store-product-date, prefer the populated one.)
+    deduplicated AS (
+        SELECT
+            *,
+            ROW_NUMBER() OVER (
+                PARTITION BY snapshot_date_clean, store_id_clean, product_id_clean
+                ORDER BY on_hand_quantity DESC
+            ) AS rn
+        FROM cleaned
+        WHERE store_id_clean   IS NOT NULL
+          AND product_id_clean IS NOT NULL
+          AND snapshot_date_clean IS NOT NULL
+    )
+
+    SELECT
+        ROW_NUMBER() OVER (
+            ORDER BY snapshot_date_clean, store_id_clean, product_id_clean
+        ) AS inventory_key,
+
+        snapshot_date_clean AS snapshot_date,
+        store_id_clean      AS store_id,
+        product_id_clean    AS product_id,
+
+        on_hand_quantity,
+        reorder_point,
+        safety_stock,
+
+        -- Quality flags — useful downstream in Gold
+        CAST(CASE
+            WHEN on_hand_quantity < 0                              THEN 'Negative on-hand'
+            WHEN reorder_point IS NULL OR reorder_point < 0         THEN 'Invalid reorder point'
+            WHEN safety_stock IS NULL OR safety_stock < 0           THEN 'Invalid safety stock'
+            WHEN on_hand_quantity < safety_stock                    THEN 'Below safety stock'
+            WHEN on_hand_quantity < reorder_point                   THEN 'Below reorder point'
+            ELSE 'Valid'
+        END AS VARCHAR(50)) AS quality_flag,
+
+        -- Stock status — business-friendly classification
+        CAST(CASE
+            WHEN on_hand_quantity < 0                     THEN 'Negative Stock'
+            WHEN on_hand_quantity = 0                     THEN 'Out of Stock'
+            WHEN on_hand_quantity < safety_stock          THEN 'Below Safety Stock'
+            WHEN on_hand_quantity < reorder_point         THEN 'Below Reorder Point'
+            ELSE 'Healthy'
+        END AS VARCHAR(30)) AS stock_status,
+
+        -- Useful derived measures
+        on_hand_quantity - reorder_point AS units_above_reorder,
+        on_hand_quantity - safety_stock  AS units_above_safety,
+
+        GETDATE() AS etl_load_date,
+        CAST('bronze.inventory_snapshots_raw' AS NVARCHAR(100)) AS etl_source
+
+    INTO silver.inventory_snapshots
+    FROM deduplicated
+    WHERE rn = 1;
 
 
     -- ============================================================
@@ -1766,6 +1854,7 @@ BEGIN
 			is_active,
 			is_current_version
 		FROM main;
+
     -- ============================================================
     -- 27. silver.promotions
     --     Promotion headers with discount description and status.
@@ -1775,7 +1864,7 @@ BEGIN
 
     ;WITH base AS (
         SELECT
-            promotion_id, promotion_name,
+            promotion_id, campaign_id ,promotion_name,
             CAST(start_date AS DATE) AS start_date,
             CAST(end_date   AS DATE) AS end_date,
             LOWER(TRIM(discount_type)) AS discount_type,
@@ -1785,7 +1874,7 @@ BEGIN
     ),
     cleaned AS (
         SELECT
-            promotion_id, promotion_name,
+            promotion_id, campaign_id , promotion_name,
             -- Extract short name from "Promotion_XXXX_NNN" pattern
             CAST(CASE WHEN promotion_name LIKE 'Promotion_%'
                       THEN SUBSTRING(promotion_name, 11, LEN(promotion_name) - 10)
@@ -1820,8 +1909,9 @@ BEGIN
         FROM base
     )
     SELECT
-        ROW_NUMBER() OVER( ORDER BY promotion_id) AS promotion_key,
+        CAST(promotion_id AS NVARCHAR(50)) AS promotion_key,
         CAST(promotion_id AS NVARCHAR(50)) AS promotion_id,
+		CAST(campaign_id AS NVARCHAR(50)) AS campaign_id,
         CAST(promotion_name AS NVARCHAR(200)) AS promotion_name,
         promotion_short_name,
         start_date, end_date, campaign_duration_days,
@@ -1839,7 +1929,7 @@ BEGIN
         CAST('bronze.promotions_raw' AS NVARCHAR(100)) AS etl_source
     INTO silver.promotions
     FROM cleaned
-    WHERE quality_flag = 'Valid';
+    WHERE quality_flag = 'Valid' AND promotion_id NOT LIKE '%DUP';
 
 
     -- ============================================================
