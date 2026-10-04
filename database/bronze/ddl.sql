@@ -333,6 +333,7 @@ IF OBJECT_ID('bronze.promotions_raw','U') IS NOT NULL
     DROP TABLE bronze.promotions_raw;
 CREATE TABLE bronze.promotions_raw (
     promotion_id   NVARCHAR(100) NULL,
+	campaign_id   NVARCHAR(100) NULL,
     promotion_name NVARCHAR(100) NULL,
     start_date     NVARCHAR(100) NULL,
     end_date       NVARCHAR(100) NULL,
