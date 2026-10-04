@@ -29,8 +29,6 @@ SELECT
     mv.movement_date,
 
     -- Descriptive pass-through
-    mv.store_id,
-    mv.product_id,
     mv.movement_type,
 
     -- Measures
@@ -55,19 +53,7 @@ SELECT
     mv.inventory_status,
     mv.demand_velocity,
     mv.sign_validation_flag,
-    mv.quality_flag,
-
-    -- Time attributes
-    mv.movement_year,
-    mv.movement_month,
-    mv.movement_quarter,
-    mv.movement_year_month,
-    mv.movement_month_name,
-
-    -- Audit
-    mv.etl_load_date,
-    mv.etl_source
-
+    mv.quality_flag
 INTO gold.fact_inventory_movements
 FROM silver.inventory_movements mv
 LEFT JOIN gold.dim_store_bridge   ds  ON mv.store_id     = ds.store_id
