@@ -5,10 +5,10 @@ SELECT
       ,[promotion_id]
       ,[promotion_name]
       ,[promotion_status]
-      ,[campaign_length_tier]
+      ,promotion_length_tier = [campaign_length_tier]
       ,[discount_type]
       ,[discount_amount_or_percent]
       ,[discount_description]
       ,[is_active]
 	INTO gold.dim_promotions
-  FROM [Blue_canopy].[silver].[promotions]
+FROM [Blue_canopy].[silver].[promotions]
