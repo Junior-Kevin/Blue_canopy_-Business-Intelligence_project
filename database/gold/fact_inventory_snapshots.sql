@@ -24,10 +24,6 @@ SELECT
     -- Date (kept as actual DATE per project convention)
     snap.snapshot_date,
 
-    -- Descriptive pass-through (kept so users can filter without joining)
-    snap.store_id,
-    snap.product_id,
-
     -- Measures (state at snapshot)
     snap.on_hand_quantity,
     snap.reorder_point,
@@ -54,11 +50,7 @@ SELECT
     END AS VARCHAR(30)) AS stock_status,
 
     -- Quality
-    CAST(snap.quality_flag AS VARCHAR(50)) AS quality_flag,
-
-    -- Audit
-    snap.etl_load_date,
-    snap.etl_source
+    CAST(snap.quality_flag AS VARCHAR(50)) AS quality_flag
 
 INTO gold.fact_inventory_snapshots
 FROM silver.inventory_snapshots snap
