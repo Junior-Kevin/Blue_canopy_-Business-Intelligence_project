@@ -1,0 +1,31 @@
+customer_id,valid_from,valid_to,first_name,last_name,gender,birth_date,phone,email,county,town,customer_segment,acquisition_channel,registration_date,churn_date,loyalty_tier,communication_preferences,feedback_score
+CUST-000001,12/4/2018,4/2/2021,Sharon,Mohamed,Male,4/24/1964,2.54706E+11,sharon.mohamed@example.com,Nakuru,Nakuru CBD,Budget Conscious,Staff,12/4/2018,,Gold,None,2.5
+CUST-000001,4/2/2021,,Sharon,Mohamed,Male,4/24/1964,2.54706E+11,sharon.mohamed@example.com,Nakuru,Nakuru CBD,Regular,Staff,12/4/2018,,Platinum,None,
+CUST-000002,12/14/2018,7/1/2025,Erick,Kanini,,8/25/1991,2.54719E+11,erick.kanini@example.com,Kiambu,Thika,Regular,Mobile App,12/14/2018,,Bronze,Email,4.8
+CUST-000002,7/1/2025,1/12/2026,Erick,Kanini,,8/25/1991,2.54719E+11,erick.kanini@example.com,Kiambu,Thika,Regular,Mobile App,12/14/2018,,Silver,Email,
+CUST-000002,1/12/2026,,Erick,Kanini,,8/25/1991,2.54719E+11,erick.kanini@example.com,Kiambu,Thika,Regular,Mobile App,12/14/2018,,Gold,Email,3.9
+CUST-000003,5/3/2019,,Stephen,Rono,Other,8/17/1947,2.54724E+11,stephen.rono@example.com,Mombasa,Mvita,Value Seeker,Mobile App,5/3/2019,,Bronze,None,3.4
+CUST-000004,10/21/2017,,Kelvin,Adan,Other,7/26/1986,2.54725E+11,kelvin.adan@example.com,Kiambu,Juja,Regular,Online,10/21/2017,,Gold,None,1.6
+CUST-000005,7/9/2021,,Joseph,Achieng,Female,10/27/1989,2.54722E+11,joseph.achieng@example.com,Nakuru,Nakuru CBD,Premium,Online,7/9/2021,3/30/2024,Gold,None,1.6
+CUST-000006,9/9/2024,,Margaret,Gitonga,,3/2/1976,2.54715E+11,margaret.gitonga@example.com,Kisumu,Kisumu CBD,Family,Referral,9/9/2024,,Silver,Phone,1.2
+CUST-000007,11/14/2018,,Ronny,Murage,,1/15/1946,2.54702E+11,ronny.murage@example.com,Mombasa,Nyali,Value Seeker,Staff,11/14/2018,,Silver,None,4.5
+CUST-000008,7/6/2020,8/27/2023,Sarah,Wanjiku,Male,5/11/1974,2.54705E+11,sarah.wanjiku@example.com,Eldoret,Eldoret CBD,Premium,Staff,7/6/2020,,Gold,SMS,3.4
+CUST-000008,8/27/2023,1/29/2025,Sarah,Wanjiku,Male,5/11/1974,2.54705E+11,sarah.wanjiku@example.com,Eldoret,Eldoret CBD,Premium,Staff,7/6/2020,,Platinum,SMS,3.8
+CUST-000008,1/29/2025,6/28/2025,Sarah,Wanjiku,Male,5/11/1974,2.54705E+11,sarah.wanjiku@example.com,Eldoret,Eldoret CBD,Premium,Staff,7/6/2020,,Platinum,SMS,1.1
+CUST-000008,6/28/2025,,Sarah,Wanjiku,Male,5/11/1974,2.54705E+11,sarah.wanjiku@example.com,Eldoret,Eldoret CBD,Premium,Staff,7/6/2020,,Platinum,SMS,4.9
+CUST-000009,4/2/2020,,Edwin,Wangila,Other,7/21/1952,2.54731E+11,edwin.wangila@example.com,Mombasa,Bamburi,Budget Conscious,In-Store,4/2/2020,,Gold,None,
+CUST-000010,10/14/2024,,Kelvin,Kamau,Female,4/9/2003,2.54719E+11,kelvin.kamau@example.com,Kisumu,Milimani,Regular,Event,10/14/2024,,Gold,Phone,4.3
+CUST-000011,4/3/2019,,Titus,Kibet,Other,7/21/1948,2.5474E+11,titus.kibet@example.com,Machakos,Machakos Town,Family,Online,4/3/2019,,Gold,SMS,1.8
+CUST-000012,9/8/2017,,Susan,Kimathi,Male,5/11/2008,2.54712E+11,,Nairobi,Kilimani,Regular,Staff,9/8/2017,,Silver,SMS,
+CUST-000013,2/22/2017,,Clinton,Wainaina,,1/14/2002,2.54719E+11,clinton.wainaina@example.com,Meru,Meru Town,Value Seeker,Referral,2/22/2017,,Silver,Email,1.7
+CUST-000014,4/7/2019,,Mercy,Edin,Male,3/17/1970,2.54708E+11,mercy.edin@example.com,Eldoret,Eldoret CBD,Value Seeker,Online,4/7/2019,,Bronze,Phone,1.7
+CUST-000015,2/25/2016,,Kipkurui,Mokaya,Male,9/18/1948,2.54733E+11,kipkurui.mokaya@example.com,Nairobi,Embakasi,Value Seeker,Referral,2/25/2016,,Bronze,None,2.2
+CUST-000016,8/10/2020,,Elizabeth,Nzomo,Male,1/11/1951,2.54717E+11,elizabeth.nzomo@example.com,Nairobi,Kasarani,Family,Event,8/10/2020,,Gold,None,3.1
+CUST-000017,8/17/2025,12/11/2025,Veronica,Kimanthi,Male,6/20/1971,2.54706E+11,veronica.kimanthi@example.com,Nairobi,CBD,Regular,In-Store,8/17/2025,,Gold,Email,
+CUST-000017,12/11/2025,,Veronica,Kimanthi,Male,6/20/1971,2.54706E+11,veronica.kimanthi@example.com,Nairobi,CBD,Budget Conscious,In-Store,8/17/2025,,Platinum,Email,
+CUST-000018,10/17/2025,,Wangui,Nthenya,Female,8/31/1956,2.54702E+11,wangui.nthenya@example.com,Meru,Timau,Regular,Event,10/17/2025,,Silver,Phone,2.7
+CUST-000019,10/19/2023,,Omar,Muthoni,Other,10/7/1963,2.54736E+11,omar.muthoni@example.com,Mombasa,Mvita,Family,Online,10/19/2023,,Bronze,Phone,2.2
+CUST-000020,9/23/2023,4/8/2025,Margaret,James,Male,6/16/1950,2.54717E+11,margaret.james@example.com,Kiambu,Thika,Family,In-Store,9/23/2023,,Gold,Phone,
+CUST-000020,4/8/2025,,Margaret,James,Male,6/16/1950,2.54717E+11,margaret.james@example.com,Kiambu,Thika,Family,In-Store,9/23/2023,,Platinum,Phone,
+CUST-000021,4/22/2021,,Mercy,Katana,Female,4/4/1962,2.54726E+11,mercy.katana@example.com,Nakuru,Gilgil,Family,Referral,4/22/2021,,Silver,Phone,
+CUST-000022,3/21/2021,5/2/2023,Charles,Kiptoo,Male,7/27/2008,2.54736E+11,charles.kiptoo@example.com,Nairobi,CBD,Value Seeker,Staff,3/21/2021,,Bronze,None,3.4
