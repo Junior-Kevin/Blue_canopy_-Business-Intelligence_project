@@ -1,0 +1,448 @@
+location_id,county,location_name,location_type,latitude,longitude,accessibility_score
+LOC-000001,Nairobi,Tempore Market,Market,-1.3811,36.8474,4.4
+LOC-000002,Nairobi,Culpa Residential,Residential,-1.1658,36.8833,2.4
+LOC-000003,Nairobi,Alias Shopping Center,Shopping Center,-1.3386,36.7799,1.2
+LOC-000004,Nairobi,Harum Shopping Center,Shopping Center,-1.2727,36.6688,2.7
+LOC-000005,Nairobi,Exercitationem Shopping Center,Shopping Center,-1.2268,36.7,4.9
+LOC-000006,Nairobi,Et Market,Market,-1.3647,36.7089,2.3
+LOC-000007,Nairobi,Deserunt Transport Hub,Transport Hub,-1.3425,36.8697,5.1
+LOC-000008,Nairobi,Corporis Market,Market,-1.3357,36.8308,5.6
+LOC-000009,Mombasa,Veritatis Industrial,Industrial,-4.0915,39.744,6.5
+LOC-000010,Mombasa,Quisquam Market,Market,-4.0916,39.8164,1.9
+LOC-000011,Mombasa,Commodi Market,Market,-4.0862,39.6678,2.1
+LOC-000012,Mombasa,Rerum Market,Market,-3.9777,39.5705,9.2
+LOC-000013,Mombasa,Nisi Shopping Center,Shopping Center,-3.8212,39.7637,3.8
+LOC-000014,Mombasa,Aliquid Shopping Center,Shopping Center,-3.9844,39.6819,2.7
+LOC-000015,Mombasa,Aliquam Transport Hub,Transport Hub,-4.1242,39.5415,1.8
+LOC-000016,Mombasa,Consectetur Transport Hub,Transport Hub,-4.0804,39.7528,3.4
+LOC-000017,Mombasa,Esse Market,Market,-4.1339,39.679,3.5
+LOC-000018,Mombasa,Eveniet Transport Hub,Transport Hub,-4.0977,39.7171,8.2
+LOC-000019,Mombasa,Quae Shopping Center,Shopping Center,-3.9969,39.7392,1.0
+LOC-000020,Mombasa,Sed Transport Hub,Transport Hub,-4.1106,39.6435,7.6
+LOC-000021,Kisumu,Alias Shopping Center,Shopping Center,-0.2124,34.856,8.8
+LOC-000022,Kisumu,Ratione Industrial,Industrial,-0.1802,34.6723,1.6
+LOC-000023,Kisumu,Eius Transport Hub,Transport Hub,-0.0249,34.7917,7.6
+LOC-000024,Kisumu,Totam Residential,Residential,-0.0628,34.7164,5.2
+LOC-000025,Kisumu,Voluptates Market,Market,0.0279,34.7951,7.8
+LOC-000026,Kisumu,Quisquam Shopping Center,Shopping Center,-0.3013,34.8338,5.4
+LOC-000027,Kisumu,Nihil Industrial,Industrial,-0.2052,34.8514,1.2
+LOC-000028,Kisumu,Est Residential,Residential,-0.1093,34.7966,5.6
+LOC-000029,Kisumu,Occaecati Residential,Residential,-0.1548,34.8275,4.7
+LOC-000030,Kisumu,Repudiandae Shopping Center,Shopping Center,-0.1564,34.7279,1.7
+LOC-000031,Kisumu,Hic Shopping Center,Shopping Center,-0.0516,34.8607,9.4
+LOC-000032,Nakuru,Ab Market,Market,-0.3455,36.1211,8.8
+LOC-000033,Nakuru,Dolore Market,Market,-0.1934,36.094,9.0
+LOC-000034,Nakuru,Voluptatem Industrial,Industrial,-0.3593,36.0538,9.1
+LOC-000035,Nakuru,Nisi Market,Market,-0.2012,36.0566,3.1
+LOC-000036,Nakuru,Laboriosam Residential,Residential,-0.3027,36.0612,8.7
+LOC-000037,Nakuru,Hic Residential,Residential,-0.3347,36.0569,4.8
+LOC-000038,Nakuru,Dolor Transport Hub,Transport Hub,-0.316,36.1123,4.0
+LOC-000039,Nakuru,Esse Residential,Residential,-0.3785,36.1923,5.7
+LOC-000040,Nakuru,Labore Market,Market,-0.4566,36.0779,9.7
+LOC-000041,Nakuru,Corporis Industrial,Industrial,-0.2949,36.0454,3.6
+LOC-000042,Kiambu,Consectetur Market,Market,-1.1868,36.8085,5.5
+LOC-000043,Kiambu,Modi Industrial,Industrial,-1.1442,36.7838,2.3
+LOC-000044,Kiambu,Consequatur Market,Market,-1.08,36.8446,3.2
+LOC-000045,Kiambu,Magnam Transport Hub,Transport Hub,-1.2355,36.8951,3.1
+LOC-000046,Kiambu,Laborum Residential,Residential,-1.1245,36.9596,6.7
+LOC-000047,Kiambu,Sed Transport Hub,Transport Hub,-1.2109,36.8583,1.8
+LOC-000048,Kiambu,Fuga Residential,Residential,-1.1634,36.7441,2.7
+LOC-000049,Kiambu,Aperiam Transport Hub,Transport Hub,-1.1707,36.7552,7.1
+LOC-000050,Kiambu,Officia Shopping Center,Shopping Center,-1.2564,36.8223,3.0
+LOC-000051,Kiambu,Quidem Market,Market,-1.1218,36.7715,7.2
+LOC-000052,Kiambu,Cupiditate Market,Market,-1.2341,36.7586,2.2
+LOC-000053,Kiambu,Minus Shopping Center,Shopping Center,-1.1999,36.8289,9.3
+LOC-000054,Uasin Gishu,Beatae Market,Market,0.5349,35.3713,6.9
+LOC-000055,Uasin Gishu,Quod Shopping Center,Shopping Center,0.4907,35.2502,5.8
+LOC-000056,Uasin Gishu,Impedit Market,Market,0.5375,35.3292,9.1
+LOC-000057,Uasin Gishu,Sunt Industrial,Industrial,0.6207,35.1973,4.1
+LOC-000058,Uasin Gishu,Sit Residential,Residential,0.5367,35.2944,9.1
+LOC-000059,Uasin Gishu,Magni Industrial,Industrial,0.5348,35.3345,6.8
+LOC-000060,Uasin Gishu,Repellat Residential,Residential,0.5401,35.2096,1.1
+LOC-000061,Uasin Gishu,Earum Shopping Center,Shopping Center,0.5307,35.1694,1.0
+LOC-000062,Uasin Gishu,Voluptatibus Residential,Residential,0.4214,35.3192,7.2
+LOC-000063,Uasin Gishu,Atque Residential,Residential,0.4566,35.1763,7.4
+LOC-000064,Meru,Aperiam Residential,Residential,0.1249,37.6823,7.7
+LOC-000065,Meru,Ut Market,Market,-0.0216,37.661,6.9
+LOC-000066,Meru,Eum Transport Hub,Transport Hub,-0.0234,37.584,4.3
+LOC-000067,Meru,Illum Shopping Center,Shopping Center,0.1181,37.6301,9.8
+LOC-000068,Meru,Beatae Transport Hub,Transport Hub,0.0488,37.7656,6.7
+LOC-000069,Meru,Eveniet Shopping Center,Shopping Center,-0.0647,37.6465,6.2
+LOC-000070,Meru,Consequuntur Shopping Center,Shopping Center,-0.0379,37.6879,7.5
+LOC-000071,Meru,Modi Industrial,Industrial,0.0379,37.7085,9.5
+LOC-000072,Meru,Hic Industrial,Industrial,-0.0199,37.5281,9.7
+LOC-000073,Machakos,Odit Transport Hub,Transport Hub,-1.5918,37.2207,8.7
+LOC-000074,Machakos,Tempora Shopping Center,Shopping Center,-1.5038,37.2925,6.0
+LOC-000075,Machakos,Maiores Residential,Residential,-1.4992,37.197,6.1
+LOC-000076,Machakos,Dolorem Market,Market,-1.513,37.1703,9.9
+LOC-000077,Machakos,Maxime Shopping Center,Shopping Center,-1.4479,37.347,8.9
+LOC-000078,Machakos,Libero Market,Market,-1.6279,37.1867,7.3
+LOC-000079,Machakos,Eos Residential,Residential,-1.4933,37.2823,8.3
+LOC-000080,Machakos,Velit Industrial,Industrial,-1.4765,37.5699,9.2
+LOC-000081,Machakos,Fugiat Residential,Residential,-1.4112,37.3408,8.2
+LOC-000082,Machakos,Voluptates Market,Market,-1.5429,37.3224,8.2
+LOC-000083,Kakamega,Vero Transport Hub,Transport Hub,0.2965,34.6815,4.4
+LOC-000084,Kakamega,Tenetur Residential,Residential,0.4685,34.6006,1.3
+LOC-000085,Kakamega,Aut Shopping Center,Shopping Center,0.2501,34.7564,3.6
+LOC-000086,Kakamega,Sequi Industrial,Industrial,0.2455,34.8371,1.3
+LOC-000087,Kakamega,Tempora Industrial,Industrial,0.4081,34.7603,2.1
+LOC-000088,Kakamega,Dolores Industrial,Industrial,0.2249,34.7673,2.9
+LOC-000089,Kakamega,Quibusdam Shopping Center,Shopping Center,0.4744,34.8975,1.5
+LOC-000090,Kakamega,Exercitationem Residential,Residential,0.1213,34.7649,6.7
+LOC-000091,Kakamega,Dolorem Shopping Center,Shopping Center,0.2477,34.6165,8.2
+LOC-000092,Bungoma,Officiis Transport Hub,Transport Hub,0.6094,34.6293,1.7
+LOC-000093,Bungoma,Modi Transport Hub,Transport Hub,0.5423,34.5346,4.7
+LOC-000094,Bungoma,Fugit Residential,Residential,0.7102,34.5924,3.3
+LOC-000095,Bungoma,Tempore Transport Hub,Transport Hub,0.5992,34.6921,6.9
+LOC-000096,Bungoma,Voluptas Industrial,Industrial,0.4475,34.5213,6.5
+LOC-000097,Bungoma,Quos Transport Hub,Transport Hub,0.55,34.7098,4.2
+LOC-000098,Bungoma,Est Industrial,Industrial,0.3097,34.478,1.9
+LOC-000099,Bungoma,Vitae Residential,Residential,0.4094,34.456,2.6
+LOC-000100,Bungoma,Itaque Shopping Center,Shopping Center,0.5338,34.5705,6.5
+LOC-000101,Kisii,Aspernatur Transport Hub,Transport Hub,-0.6714,34.9559,4.4
+LOC-000102,Kisii,Eum Industrial,Industrial,-0.7546,34.8051,8.7
+LOC-000103,Kisii,Aliquid Market,Market,-0.6923,34.773,1.6
+LOC-000104,Kisii,Ipsam Market,Market,-0.667,34.8211,6.3
+LOC-000105,Kisii,Natus Market,Market,-0.7253,34.937,4.5
+LOC-000106,Kisii,Fugiat Shopping Center,Shopping Center,-0.6882,34.8152,5.9
+LOC-000107,Kisii,At Shopping Center,Shopping Center,-0.715,34.7847,9.7
+LOC-000108,Kisii,Error Industrial,Industrial,-0.7232,34.8361,3.9
+LOC-000109,Kisii,Reiciendis Transport Hub,Transport Hub,-0.5999,34.8843,2.1
+LOC-000110,Nyamira,Ipsam Industrial,Industrial,-0.5089,35.0004,8.9
+LOC-000111,Nyamira,Error Industrial,Industrial,-0.5298,34.8932,3.5
+LOC-000112,Nyamira,Ullam Transport Hub,Transport Hub,-0.5756,34.9594,8.3
+LOC-000113,Nyamira,Praesentium Industrial,Industrial,-0.6274,35.043,4.3
+LOC-000114,Nyamira,Nam Transport Hub,Transport Hub,-0.5913,35.0379,9.4
+LOC-000115,Nyamira,Temporibus Residential,Residential,-0.6065,34.9709,7.8
+LOC-000116,Nyamira,Officia Transport Hub,Transport Hub,-0.4695,34.9517,9.1
+LOC-000117,Nyamira,Dicta Market,Market,-0.593,35.0183,3.9
+LOC-000118,Nyandarua,Fuga Transport Hub,Transport Hub,-0.0056,36.3563,1.1
+LOC-000119,Nyandarua,Deserunt Residential,Residential,0.1215,36.4519,9.6
+LOC-000120,Nyandarua,Expedita Residential,Residential,-0.112,36.2696,5.0
+LOC-000121,Nyandarua,Ratione Market,Market,0.0302,36.4201,7.1
+LOC-000122,Nyandarua,Quidem Residential,Residential,-0.0325,36.2949,8.1
+LOC-000123,Nyandarua,Fuga Industrial,Industrial,-0.1987,36.5083,1.5
+LOC-000124,Nyandarua,Reprehenderit Shopping Center,Shopping Center,-0.0975,36.341,9.0
+LOC-000125,Nyandarua,Nobis Industrial,Industrial,0.0176,36.4753,2.3
+LOC-000126,Nyeri,Reprehenderit Residential,Residential,-0.3971,36.9094,1.9
+LOC-000127,Nyeri,Natus Transport Hub,Transport Hub,-0.372,37.0198,1.7
+LOC-000128,Nyeri,Magni Shopping Center,Shopping Center,-0.5325,36.8374,1.7
+LOC-000129,Nyeri,Est Transport Hub,Transport Hub,-0.4698,37.0588,8.3
+LOC-000130,Nyeri,Deserunt Market,Market,-0.3918,37.068,1.8
+LOC-000131,Nyeri,Quaerat Residential,Residential,-0.4409,36.9496,4.8
+LOC-000132,Nyeri,Possimus Transport Hub,Transport Hub,-0.3909,36.8838,5.2
+LOC-000133,Nyeri,Consectetur Transport Hub,Transport Hub,-0.3773,36.9571,7.7
+LOC-000134,Kirinyaga,Architecto Shopping Center,Shopping Center,-0.3865,37.409,4.4
+LOC-000135,Kirinyaga,Culpa Residential,Residential,-0.4361,37.5198,3.0
+LOC-000136,Kirinyaga,Dolor Shopping Center,Shopping Center,-0.4339,37.3793,9.9
+LOC-000137,Kirinyaga,Sunt Transport Hub,Transport Hub,-0.2596,37.4736,9.7
+LOC-000138,Kirinyaga,Dolore Transport Hub,Transport Hub,-0.2694,37.3797,7.3
+LOC-000139,Kirinyaga,Vero Market,Market,-0.4506,37.5192,6.3
+LOC-000140,Kirinyaga,Nisi Transport Hub,Transport Hub,-0.5089,37.3931,6.6
+LOC-000141,Kirinyaga,Saepe Residential,Residential,-0.3591,37.2963,5.2
+LOC-000142,Kirinyaga,At Industrial,Industrial,-0.4144,37.5912,1.7
+LOC-000143,Murang'a,Molestiae Market,Market,-0.671,37.2276,3.8
+LOC-000144,Murang'a,Modi Residential,Residential,-0.8223,37.2965,2.5
+LOC-000145,Murang'a,Saepe Residential,Residential,-0.7226,37.1274,9.4
+LOC-000146,Murang'a,Omnis Shopping Center,Shopping Center,-0.8538,37.2583,8.3
+LOC-000147,Murang'a,Quia Market,Market,-0.6946,37.1723,9.7
+LOC-000148,Murang'a,Explicabo Shopping Center,Shopping Center,-0.8443,37.102,5.2
+LOC-000149,Murang'a,Quod Transport Hub,Transport Hub,-0.6959,37.1742,1.5
+LOC-000150,Murang'a,Accusamus Market,Market,-0.7163,37.1538,10.0
+LOC-000151,Laikipia,Vero Industrial,Industrial,0.3917,36.8221,7.9
+LOC-000152,Laikipia,Cum Market,Market,0.4263,36.9912,2.2
+LOC-000153,Laikipia,Vero Transport Hub,Transport Hub,0.5015,37.0733,3.1
+LOC-000154,Laikipia,Quidem Shopping Center,Shopping Center,0.4433,36.8901,4.2
+LOC-000155,Laikipia,Fugiat Shopping Center,Shopping Center,0.4259,37.0741,5.7
+LOC-000156,Laikipia,Temporibus Industrial,Industrial,0.5816,37.0904,8.7
+LOC-000157,Laikipia,Laboriosam Transport Hub,Transport Hub,0.3351,36.9285,8.9
+LOC-000158,Laikipia,Culpa Shopping Center,Shopping Center,0.4683,37.0595,1.3
+LOC-000159,Nandi,Impedit Transport Hub,Transport Hub,0.0653,34.9726,7.3
+LOC-000160,Nandi,Nostrum Transport Hub,Transport Hub,0.1847,34.8593,1.1
+LOC-000161,Nandi,Dolore Industrial,Industrial,0.1709,34.989,4.5
+LOC-000162,Nandi,Odit Shopping Center,Shopping Center,0.2202,35.0059,4.1
+LOC-000163,Nandi,A Transport Hub,Transport Hub,0.1785,35.0265,4.6
+LOC-000164,Nandi,Fuga Shopping Center,Shopping Center,-0.0363,34.9956,9.5
+LOC-000165,Nandi,Provident Residential,Residential,0.0995,35.0322,5.1
+LOC-000166,Nandi,Dolorum Industrial,Industrial,-0.0044,35.0536,4.0
+LOC-000167,Nandi,Quae Residential,Residential,0.0119,35.039,1.7
+LOC-000168,Nandi,Corrupti Industrial,Industrial,0.095,35.0764,4.1
+LOC-000169,Kericho,Sunt Industrial,Industrial,-0.4027,35.2449,7.0
+LOC-000170,Kericho,In Market,Market,-0.4094,35.2196,1.4
+LOC-000171,Kericho,Tempore Shopping Center,Shopping Center,-0.4817,35.2677,2.6
+LOC-000172,Kericho,Quae Shopping Center,Shopping Center,-0.2098,35.2858,4.3
+LOC-000173,Kericho,Sequi Market,Market,-0.3258,35.3794,1.4
+LOC-000174,Kericho,Eius Residential,Residential,-0.376,35.2653,1.7
+LOC-000175,Kericho,Dolor Market,Market,-0.4259,35.3294,8.3
+LOC-000176,Kericho,Minima Transport Hub,Transport Hub,-0.389,35.0988,2.9
+LOC-000177,Kericho,Dolorem Transport Hub,Transport Hub,-0.4171,35.1076,6.6
+LOC-000178,Kericho,Quis Shopping Center,Shopping Center,-0.3209,35.3079,7.7
+LOC-000179,Kericho,Quia Transport Hub,Transport Hub,-0.4448,35.2894,5.6
+LOC-000180,Kericho,A Shopping Center,Shopping Center,-0.4955,35.2993,5.0
+LOC-000181,Bomet,Sapiente Market,Market,-0.7817,35.3295,3.4
+LOC-000182,Bomet,Iste Market,Market,-0.8184,35.2468,3.9
+LOC-000183,Bomet,Porro Shopping Center,Shopping Center,-0.7492,35.4061,2.1
+LOC-000184,Bomet,Ad Market,Market,-0.7673,35.4517,7.1
+LOC-000185,Bomet,Culpa Market,Market,-0.5768,35.4145,1.8
+LOC-000186,Bomet,Magni Residential,Residential,-0.8497,35.3181,7.7
+LOC-000187,Bomet,Inventore Market,Market,-0.655,35.2285,3.6
+LOC-000188,Bomet,Excepturi Transport Hub,Transport Hub,-0.8786,35.3783,6.1
+LOC-000189,Kilifi,Aspernatur Residential,Residential,-3.6699,39.7999,1.9
+LOC-000190,Kilifi,Excepturi Industrial,Industrial,-3.6807,39.7809,2.4
+LOC-000191,Kilifi,Reiciendis Shopping Center,Shopping Center,-3.8335,39.9048,2.6
+LOC-000192,Kilifi,Beatae Transport Hub,Transport Hub,-3.6524,39.7774,9.8
+LOC-000193,Kilifi,Blanditiis Shopping Center,Shopping Center,-3.6143,39.8719,9.7
+LOC-000194,Kilifi,Placeat Transport Hub,Transport Hub,-3.5932,39.7718,3.3
+LOC-000195,Kilifi,Atque Transport Hub,Transport Hub,-3.4698,39.9796,9.4
+LOC-000196,Kilifi,Quibusdam Industrial,Industrial,-3.6863,39.8956,3.5
+LOC-000197,Kilifi,Debitis Shopping Center,Shopping Center,-3.6109,39.6307,3.9
+LOC-000198,Kwale,Debitis Industrial,Industrial,-4.1558,39.3867,3.2
+LOC-000199,Kwale,Unde Shopping Center,Shopping Center,-4.2677,39.4804,3.6
+LOC-000200,Kwale,Pariatur Market,Market,-4.2287,39.4628,5.3
+LOC-000201,Kwale,Quo Market,Market,-4.2248,39.5198,4.0
+LOC-000202,Kwale,Doloremque Industrial,Industrial,-4.1342,39.5743,7.1
+LOC-000203,Kwale,Fuga Residential,Residential,-4.3182,39.3764,5.2
+LOC-000204,Kwale,Quia Industrial,Industrial,-4.1469,39.4107,9.4
+LOC-000205,Kwale,Sequi Industrial,Industrial,-4.1376,39.5854,9.4
+LOC-000206,Kwale,Nisi Industrial,Industrial,-4.1496,39.426,8.6
+LOC-000207,Kwale,Error Market,Market,-4.2021,39.4335,2.8
+LOC-000208,Kwale,Quis Market,Market,-4.1534,39.625,8.3
+LOC-000209,Lamu,Voluptas Industrial,Industrial,-2.2927,40.9758,4.2
+LOC-000210,Lamu,Eligendi Residential,Residential,-2.4341,40.8194,8.3
+LOC-000211,Lamu,Ipsa Market,Market,-2.187,40.8325,5.2
+LOC-000212,Lamu,Natus Shopping Center,Shopping Center,-2.2449,40.8825,5.5
+LOC-000213,Lamu,Velit Shopping Center,Shopping Center,-2.1997,40.9076,4.5
+LOC-000214,Lamu,Totam Shopping Center,Shopping Center,-2.3894,40.9915,6.6
+LOC-000215,Lamu,Minima Transport Hub,Transport Hub,-2.2303,40.9998,2.3
+LOC-000216,Lamu,Nulla Industrial,Industrial,-2.2566,40.9199,5.8
+LOC-000217,Taita Taveta,Quas Industrial,Industrial,-3.4842,38.2907,2.4
+LOC-000218,Taita Taveta,Odio Shopping Center,Shopping Center,-3.3912,38.3179,7.7
+LOC-000219,Taita Taveta,Cumque Residential,Residential,-3.4247,38.4224,7.9
+LOC-000220,Taita Taveta,Expedita Industrial,Industrial,-3.4185,38.2778,8.4
+LOC-000221,Taita Taveta,Et Shopping Center,Shopping Center,-3.4311,38.3119,8.2
+LOC-000222,Taita Taveta,At Market,Market,-3.3273,38.4646,7.5
+LOC-000223,Taita Taveta,Labore Industrial,Industrial,-3.5275,38.3786,7.2
+LOC-000224,Taita Taveta,Adipisci Transport Hub,Transport Hub,-3.5392,38.4758,4.1
+LOC-000225,Taita Taveta,Repudiandae Market,Market,-3.3825,38.5676,5.2
+LOC-000226,Garissa,Quod Transport Hub,Transport Hub,-0.4438,39.7051,6.5
+LOC-000227,Garissa,Eum Market,Market,-0.4353,39.6824,7.3
+LOC-000228,Garissa,Repudiandae Market,Market,-0.302,39.7546,2.4
+LOC-000229,Garissa,Est Shopping Center,Shopping Center,-0.4379,39.655,4.8
+LOC-000230,Garissa,Ab Shopping Center,Shopping Center,-0.5318,39.6369,9.3
+LOC-000231,Garissa,Aut Industrial,Industrial,-0.2495,39.6889,9.9
+LOC-000232,Garissa,Voluptatum Industrial,Industrial,-0.4652,39.6128,4.6
+LOC-000233,Garissa,Suscipit Industrial,Industrial,-0.3844,39.4613,8.2
+LOC-000234,Wajir,Assumenda Industrial,Industrial,1.6453,39.954,9.3
+LOC-000235,Wajir,Eum Market,Market,1.6283,40.0367,7.6
+LOC-000236,Wajir,Atque Shopping Center,Shopping Center,1.7288,40.0358,5.1
+LOC-000237,Wajir,Aliquid Industrial,Industrial,1.8129,40.045,5.5
+LOC-000238,Wajir,Iure Market,Market,1.8964,40.1477,4.3
+LOC-000239,Wajir,Aut Industrial,Industrial,1.6671,40.0989,1.1
+LOC-000240,Wajir,Quam Residential,Residential,1.727,39.9691,9.6
+LOC-000241,Wajir,Ex Industrial,Industrial,1.7486,40.0703,1.8
+LOC-000242,Wajir,Hic Residential,Residential,1.7496,40.0557,6.4
+LOC-000243,Mandera,Velit Transport Hub,Transport Hub,3.9287,41.8685,2.9
+LOC-000244,Mandera,Placeat Industrial,Industrial,3.9353,41.8126,2.7
+LOC-000245,Mandera,Error Shopping Center,Shopping Center,4.049,41.6434,6.1
+LOC-000246,Mandera,Quis Shopping Center,Shopping Center,4.0376,41.6902,5.0
+LOC-000247,Mandera,Delectus Residential,Residential,3.9611,41.8357,2.4
+LOC-000248,Mandera,Rem Shopping Center,Shopping Center,3.8253,41.7939,9.5
+LOC-000249,Mandera,Repellat Market,Market,3.9089,41.8505,6.8
+LOC-000250,Mandera,Pariatur Transport Hub,Transport Hub,4.0128,41.9578,2.4
+LOC-000251,Mandera,Exercitationem Transport Hub,Transport Hub,3.8815,41.7978,1.2
+LOC-000252,Mandera,Pariatur Market,Market,3.8959,41.8952,7.0
+LOC-000253,Mandera,Nemo Residential,Residential,3.9098,41.8378,6.9
+LOC-000254,Marsabit,Eaque Market,Market,2.3902,38.0188,3.2
+LOC-000255,Marsabit,Consequatur Transport Hub,Transport Hub,2.465,37.9027,8.5
+LOC-000256,Marsabit,Consequatur Industrial,Industrial,2.3807,37.9585,2.8
+LOC-000257,Marsabit,Unde Transport Hub,Transport Hub,2.1997,38.1245,1.1
+LOC-000258,Marsabit,Non Transport Hub,Transport Hub,2.2915,38.0672,9.0
+LOC-000259,Marsabit,Libero Shopping Center,Shopping Center,2.4386,37.8431,3.3
+LOC-000260,Marsabit,Nisi Market,Market,2.2309,38.1237,3.4
+LOC-000261,Marsabit,Neque Transport Hub,Transport Hub,2.193,37.9397,6.0
+LOC-000262,Isiolo,Omnis Shopping Center,Shopping Center,0.3091,37.6141,9.5
+LOC-000263,Isiolo,Asperiores Market,Market,0.4304,37.5797,8.8
+LOC-000264,Isiolo,Veniam Transport Hub,Transport Hub,0.3236,37.5776,8.2
+LOC-000265,Isiolo,Ullam Market,Market,0.5251,37.636,3.4
+LOC-000266,Isiolo,Tenetur Shopping Center,Shopping Center,0.3664,37.5675,3.3
+LOC-000267,Isiolo,Consequuntur Industrial,Industrial,0.2496,37.5903,9.9
+LOC-000268,Isiolo,Assumenda Market,Market,0.3684,37.5039,3.5
+LOC-000269,Isiolo,Necessitatibus Transport Hub,Transport Hub,0.5131,37.6396,3.5
+LOC-000270,Kitui,Labore Transport Hub,Transport Hub,-1.3462,38.0953,8.5
+LOC-000271,Kitui,Corrupti Transport Hub,Transport Hub,-1.447,38.0575,6.4
+LOC-000272,Kitui,Expedita Market,Market,-1.514,37.9143,9.2
+LOC-000273,Kitui,Earum Transport Hub,Transport Hub,-1.3945,38.0326,5.7
+LOC-000274,Kitui,Eaque Market,Market,-1.4156,37.9042,6.4
+LOC-000275,Kitui,Quidem Industrial,Industrial,-1.2594,37.946,3.6
+LOC-000276,Kitui,Occaecati Transport Hub,Transport Hub,-1.4427,38.2273,3.7
+LOC-000277,Kitui,Deserunt Transport Hub,Transport Hub,-1.3591,38.031,7.0
+LOC-000278,Kitui,Nisi Transport Hub,Transport Hub,-1.4128,38.0265,2.9
+LOC-000279,Makueni,Ducimus Residential,Residential,-1.9185,37.8123,5.5
+LOC-000280,Makueni,Hic Shopping Center,Shopping Center,-1.7861,37.875,7.9
+LOC-000281,Makueni,Officiis Residential,Residential,-1.9079,37.7013,7.2
+LOC-000282,Makueni,Expedita Shopping Center,Shopping Center,-1.7327,37.8111,8.4
+LOC-000283,Makueni,Autem Residential,Residential,-1.9243,37.8248,3.4
+LOC-000284,Makueni,Numquam Industrial,Industrial,-1.7893,37.783,1.8
+LOC-000285,Makueni,Quo Shopping Center,Shopping Center,-1.6981,37.7429,2.7
+LOC-000286,Makueni,Consequuntur Residential,Residential,-1.7385,37.8198,7.6
+LOC-000287,Makueni,Architecto Industrial,Industrial,-1.8196,37.7839,7.2
+LOC-000288,Makueni,Totam Residential,Residential,-1.7489,37.7499,5.4
+LOC-000289,Embu,Quis Market,Market,-0.4678,37.4607,2.6
+LOC-000290,Embu,Accusantium Industrial,Industrial,-0.6198,37.5343,1.3
+LOC-000291,Embu,Consectetur Transport Hub,Transport Hub,-0.443,37.4436,9.3
+LOC-000292,Embu,Ex Transport Hub,Transport Hub,-0.4582,37.4087,8.6
+LOC-000293,Embu,Doloremque Market,Market,-0.6457,37.4901,1.3
+LOC-000294,Embu,Nemo Market,Market,-0.5155,37.4117,2.1
+LOC-000295,Embu,Placeat Transport Hub,Transport Hub,-0.5542,37.4608,4.1
+LOC-000296,Embu,Perspiciatis Shopping Center,Shopping Center,-0.4175,37.4657,3.8
+LOC-000297,Tharaka Nithi,Error Residential,Residential,-0.1473,37.6726,3.9
+LOC-000298,Tharaka Nithi,Natus Shopping Center,Shopping Center,-0.2101,37.7352,6.5
+LOC-000299,Tharaka Nithi,Assumenda Residential,Residential,-0.1188,37.5953,9.5
+LOC-000300,Tharaka Nithi,Doloremque Market,Market,-0.0328,37.621,4.6
+LOC-000301,Tharaka Nithi,Modi Shopping Center,Shopping Center,-0.3512,37.5093,8.9
+LOC-000302,Tharaka Nithi,A Residential,Residential,-0.2503,37.6275,7.6
+LOC-000303,Tharaka Nithi,Molestias Residential,Residential,-0.2972,37.5659,4.2
+LOC-000304,Tharaka Nithi,Fuga Shopping Center,Shopping Center,-0.2195,37.6687,3.1
+LOC-000305,Tharaka Nithi,Odit Industrial,Industrial,-0.3023,37.7046,4.5
+LOC-000306,Tharaka Nithi,Illo Transport Hub,Transport Hub,-0.138,37.6329,9.5
+LOC-000307,Tharaka Nithi,Nisi Residential,Residential,-0.0319,37.5969,9.5
+LOC-000308,Tharaka Nithi,Voluptatem Transport Hub,Transport Hub,-0.2034,37.6894,2.5
+LOC-000309,Busia,Quos Market,Market,0.3286,34.1159,6.5
+LOC-000310,Busia,Ut Transport Hub,Transport Hub,0.4043,34.0656,2.6
+LOC-000311,Busia,Placeat Residential,Residential,0.4145,34.0966,8.0
+LOC-000312,Busia,Dolor Market,Market,0.5678,34.0643,9.7
+LOC-000313,Busia,Eaque Shopping Center,Shopping Center,0.4817,34.0799,7.3
+LOC-000314,Busia,Impedit Residential,Residential,0.4704,33.9887,3.0
+LOC-000315,Busia,Esse Market,Market,0.387,34.1232,6.3
+LOC-000316,Busia,Aspernatur Market,Market,0.4052,34.079,8.9
+LOC-000317,Busia,Repellendus Transport Hub,Transport Hub,0.4977,34.1967,9.0
+LOC-000318,Busia,Quis Shopping Center,Shopping Center,0.44,34.0461,6.0
+LOC-000319,Busia,Assumenda Residential,Residential,0.5249,34.0339,4.4
+LOC-000320,Busia,Ipsam Residential,Residential,0.4128,34.1279,5.5
+LOC-000321,Siaya,Aspernatur Shopping Center,Shopping Center,-0.2188,34.2187,8.7
+LOC-000322,Siaya,Architecto Residential,Residential,0.0205,34.3718,6.3
+LOC-000323,Siaya,Reprehenderit Shopping Center,Shopping Center,-0.0715,34.3253,7.1
+LOC-000324,Siaya,Perferendis Residential,Residential,0.107,34.377,8.9
+LOC-000325,Siaya,Provident Transport Hub,Transport Hub,0.0921,34.3455,8.7
+LOC-000326,Siaya,Quia Industrial,Industrial,0.145,34.3818,8.5
+LOC-000327,Siaya,Dolore Residential,Residential,0.0078,34.3267,6.6
+LOC-000328,Siaya,Aspernatur Market,Market,0.0463,34.3,8.9
+LOC-000329,Siaya,Quaerat Market,Market,0.0045,34.3279,4.0
+LOC-000330,Siaya,Beatae Industrial,Industrial,0.062,34.3906,8.4
+LOC-000331,Siaya,Ea Residential,Residential,0.1251,34.1691,1.1
+LOC-000332,Siaya,Atque Market,Market,-0.0491,34.348,9.8
+LOC-000333,Homa Bay,Saepe Residential,Residential,-0.4067,34.4751,6.7
+LOC-000334,Homa Bay,Atque Shopping Center,Shopping Center,-0.5063,34.5842,2.0
+LOC-000335,Homa Bay,Veniam Residential,Residential,-0.4296,34.3427,9.7
+LOC-000336,Homa Bay,Ex Shopping Center,Shopping Center,-0.562,34.4735,9.4
+LOC-000337,Homa Bay,Necessitatibus Industrial,Industrial,-0.5553,34.472,3.7
+LOC-000338,Homa Bay,Cumque Transport Hub,Transport Hub,-0.4307,34.3361,6.2
+LOC-000339,Homa Bay,Reiciendis Industrial,Industrial,-0.4969,34.4159,1.4
+LOC-000340,Homa Bay,Expedita Transport Hub,Transport Hub,-0.4011,34.4527,1.2
+LOC-000341,Migori,Repellendus Market,Market,-1.2019,34.4414,7.1
+LOC-000342,Migori,Saepe Market,Market,-1.1816,34.298,10.0
+LOC-000343,Migori,Animi Shopping Center,Shopping Center,-1.0139,34.5529,2.5
+LOC-000344,Migori,Sit Transport Hub,Transport Hub,-1.0463,34.4288,3.0
+LOC-000345,Migori,Beatae Market,Market,-1.0836,34.3821,6.9
+LOC-000346,Migori,Nihil Residential,Residential,-0.9181,34.3883,9.5
+LOC-000347,Migori,Unde Transport Hub,Transport Hub,-0.994,34.4574,4.6
+LOC-000348,Migori,Reprehenderit Transport Hub,Transport Hub,-1.1659,34.5894,3.1
+LOC-000349,Vihiga,Recusandae Industrial,Industrial,0.1312,34.7397,8.8
+LOC-000350,Vihiga,Quasi Shopping Center,Shopping Center,0.1182,34.7785,2.7
+LOC-000351,Vihiga,Ipsam Market,Market,0.1276,34.7906,7.9
+LOC-000352,Vihiga,Facilis Residential,Residential,0.1065,34.7987,6.6
+LOC-000353,Vihiga,Enim Residential,Residential,0.0083,34.738,8.2
+LOC-000354,Vihiga,Velit Market,Market,0.0367,34.8861,2.1
+LOC-000355,Vihiga,Ipsam Residential,Residential,0.0315,34.7409,2.8
+LOC-000356,Vihiga,Excepturi Shopping Center,Shopping Center,0.1581,34.6898,6.2
+LOC-000357,Vihiga,Fuga Shopping Center,Shopping Center,0.0686,34.74,3.8
+LOC-000358,Baringo,Nam Residential,Residential,0.4638,35.9228,1.7
+LOC-000359,Baringo,Delectus Transport Hub,Transport Hub,0.5819,36.0292,6.4
+LOC-000360,Baringo,Velit Industrial,Industrial,0.4226,36.1129,8.7
+LOC-000361,Baringo,Tenetur Transport Hub,Transport Hub,0.6922,36.1149,3.2
+LOC-000362,Baringo,In Shopping Center,Shopping Center,0.4823,36.1189,7.3
+LOC-000363,Baringo,Officia Shopping Center,Shopping Center,0.4299,36.1197,3.9
+LOC-000364,Baringo,Ipsam Shopping Center,Shopping Center,0.4199,36.0942,4.2
+LOC-000365,Baringo,Aut Shopping Center,Shopping Center,0.5791,36.1666,6.1
+LOC-000366,Elgeyo Marakwet,Accusamus Market,Market,0.6286,35.6073,2.8
+LOC-000367,Elgeyo Marakwet,Officia Shopping Center,Shopping Center,0.6617,35.5619,1.3
+LOC-000368,Elgeyo Marakwet,Soluta Residential,Residential,0.5883,35.5841,8.8
+LOC-000369,Elgeyo Marakwet,Recusandae Industrial,Industrial,0.5259,35.6093,4.1
+LOC-000370,Elgeyo Marakwet,Consequuntur Shopping Center,Shopping Center,0.6827,35.4782,8.4
+LOC-000371,Elgeyo Marakwet,Aut Residential,Residential,0.4871,35.5497,5.7
+LOC-000372,Elgeyo Marakwet,Quidem Shopping Center,Shopping Center,0.4646,35.4946,1.5
+LOC-000373,Elgeyo Marakwet,Error Market,Market,0.4342,35.491,8.8
+LOC-000374,Elgeyo Marakwet,Quae Industrial,Industrial,0.5148,35.7047,8.1
+LOC-000375,Elgeyo Marakwet,Fuga Market,Market,0.442,35.5936,6.0
+LOC-000376,Elgeyo Marakwet,Delectus Industrial,Industrial,0.5197,35.5429,10.0
+LOC-000377,Samburu,Laudantium Shopping Center,Shopping Center,0.4931,37.5336,2.8
+LOC-000378,Samburu,Atque Industrial,Industrial,0.5127,37.3832,1.3
+LOC-000379,Samburu,Exercitationem Residential,Residential,0.6079,37.5866,8.8
+LOC-000380,Samburu,Maxime Residential,Residential,0.4352,37.3996,4.8
+LOC-000381,Samburu,Id Shopping Center,Shopping Center,0.4084,37.6768,9.9
+LOC-000382,Samburu,Dolore Shopping Center,Shopping Center,0.6196,37.5136,7.5
+LOC-000383,Samburu,Nulla Market,Market,0.4027,37.4709,9.1
+LOC-000384,Samburu,Quisquam Shopping Center,Shopping Center,0.6514,37.6271,6.3
+LOC-000385,Samburu,Voluptatibus Industrial,Industrial,0.5654,37.4619,7.6
+LOC-000386,Trans Nzoia,Incidunt Residential,Residential,0.9727,34.9463,9.2
+LOC-000387,Trans Nzoia,Similique Market,Market,1.0426,34.9767,9.7
+LOC-000388,Trans Nzoia,Ullam Residential,Residential,1.0602,34.9704,5.4
+LOC-000389,Trans Nzoia,Quia Residential,Residential,0.8379,35.0188,5.0
+LOC-000390,Trans Nzoia,Accusamus Transport Hub,Transport Hub,0.9877,34.9104,6.3
+LOC-000391,Trans Nzoia,Vel Industrial,Industrial,1.0813,34.9003,9.7
+LOC-000392,Trans Nzoia,Quod Transport Hub,Transport Hub,0.9793,35.0277,3.9
+LOC-000393,Trans Nzoia,In Residential,Residential,0.8922,34.9782,9.7
+LOC-000394,Trans Nzoia,Ut Market,Market,1.0228,34.8974,1.7
+LOC-000395,Trans Nzoia,Corporis Market,Market,0.996,35.0987,4.0
+LOC-000396,Turkana,Deleniti Shopping Center,Shopping Center,3.5341,35.635,3.2
+LOC-000397,Turkana,Fuga Transport Hub,Transport Hub,3.4818,35.6648,2.5
+LOC-000398,Turkana,Cum Residential,Residential,3.4446,35.6014,5.3
+LOC-000399,Turkana,Corrupti Market,Market,3.3897,35.5974,6.3
+LOC-000400,Turkana,Quod Market,Market,3.4083,35.564,2.0
+LOC-000401,Turkana,Dolor Transport Hub,Transport Hub,3.4035,35.4842,5.8
+LOC-000402,Turkana,Fugit Industrial,Industrial,3.4203,35.4071,9.4
+LOC-000403,Turkana,Id Residential,Residential,3.4251,35.6032,1.4
+LOC-000404,Turkana,Sed Residential,Residential,3.4938,35.3353,8.8
+LOC-000405,Turkana,Eos Industrial,Industrial,3.3443,35.5993,5.4
+LOC-000406,West Pokot,Laboriosam Transport Hub,Transport Hub,1.3054,35.0088,1.3
+LOC-000407,West Pokot,Enim Market,Market,1.2388,35.0399,2.8
+LOC-000408,West Pokot,Vitae Industrial,Industrial,1.2014,35.1094,5.0
+LOC-000409,West Pokot,Tempora Transport Hub,Transport Hub,1.2142,35.2523,7.2
+LOC-000410,West Pokot,Fuga Shopping Center,Shopping Center,1.2328,35.1761,6.6
+LOC-000411,West Pokot,Quae Residential,Residential,1.2325,35.1279,1.3
+LOC-000412,West Pokot,Porro Market,Market,1.2678,35.0006,7.1
+LOC-000413,West Pokot,Explicabo Industrial,Industrial,1.155,35.1157,4.5
+LOC-000414,West Pokot,Asperiores Market,Market,1.2116,35.1183,6.9
+LOC-000415,West Pokot,Consectetur Transport Hub,Transport Hub,1.2439,35.2068,8.8
+LOC-000416,West Pokot,Tempora Transport Hub,Transport Hub,1.1972,35.1691,7.6
+LOC-000417,West Pokot,Nisi Shopping Center,Shopping Center,1.3005,35.1376,3.9
+LOC-000418,Narok,Harum Industrial,Industrial,-1.1071,35.9934,7.9
+LOC-000419,Narok,Aperiam Market,Market,-1.0737,35.801,8.4
+LOC-000420,Narok,A Residential,Residential,-1.171,35.7681,1.1
+LOC-000421,Narok,Iusto Transport Hub,Transport Hub,-1.1541,36.0075,4.6
+LOC-000422,Narok,Delectus Residential,Residential,-1.1344,35.7775,5.0
+LOC-000423,Narok,Tempore Market,Market,-1.0697,35.8273,3.0
+LOC-000424,Narok,Fuga Residential,Residential,-1.1384,36.0635,7.0
+LOC-000425,Narok,Dolorem Transport Hub,Transport Hub,-1.0786,35.9734,4.4
+LOC-000426,Narok,Numquam Residential,Residential,-1.1945,35.7517,5.3
+LOC-000427,Narok,Quod Industrial,Industrial,-0.897,35.9413,6.2
+LOC-000428,Kajiado,Voluptatibus Industrial,Industrial,-1.8024,36.8516,7.9
+LOC-000429,Kajiado,Nobis Residential,Residential,-1.8702,36.8147,9.6
+LOC-000430,Kajiado,Ratione Transport Hub,Transport Hub,-1.9103,36.7608,9.3
+LOC-000431,Kajiado,Accusamus Shopping Center,Shopping Center,-1.9196,36.7046,5.4
+LOC-000432,Kajiado,Culpa Shopping Center,Shopping Center,-1.8356,36.8947,3.8
+LOC-000433,Kajiado,Autem Industrial,Industrial,-1.7288,36.8451,3.8
+LOC-000434,Kajiado,Voluptas Industrial,Industrial,-1.9286,36.7653,3.5
+LOC-000435,Kajiado,Distinctio Shopping Center,Shopping Center,-1.9275,36.8274,2.6
+LOC-000436,Kajiado,Quisquam Transport Hub,Transport Hub,-1.8981,36.8089,5.7
+LOC-000437,Kajiado,Amet Transport Hub,Transport Hub,-1.7382,36.7773,6.1
+LOC-000438,Tana River,Maxime Industrial,Industrial,-1.4567,39.7823,6.0
+LOC-000439,Tana River,Reprehenderit Transport Hub,Transport Hub,-1.3702,39.8474,9.6
+LOC-000440,Tana River,Quod Market,Market,-1.5229,39.7637,9.0
+LOC-000441,Tana River,Dignissimos Residential,Residential,-1.3747,39.7926,6.5
+LOC-000442,Tana River,Non Residential,Residential,-1.5662,39.7613,9.1
+LOC-000443,Tana River,Debitis Shopping Center,Shopping Center,-1.4025,39.7719,8.0
+LOC-000444,Tana River,Animi Industrial,Industrial,-1.5206,39.839,4.8
+LOC-000445,Tana River,Inventore Transport Hub,Transport Hub,-1.2889,39.7177,6.6
+LOC-000446,Tana River,Maiores Transport Hub,Transport Hub,-1.416,39.8498,2.5
+LOC-000447,Tana River,Animi Residential,Residential,-1.3687,39.9466,3.0
