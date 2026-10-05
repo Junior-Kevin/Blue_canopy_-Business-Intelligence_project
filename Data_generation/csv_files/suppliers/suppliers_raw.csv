@@ -1,0 +1,255 @@
+supplier_id,valid_from,valid_to,supplier_name,contact_person,phone,email,payment_terms,lead_time_days,category,tax_id
+SUP-0001,2016-01-01,2020-08-28,Nairobi Wholesalers Ltd,James Kigen,+2540706022741,contact@nairobiwholesalersltd.co.ke,Net15,5,Local,P45496015
+SUP-0001,2020-08-28,,Nairobi Wholesalers Ltd,Elizabeth Omondi,+2540706022741,contact@nairobiwholesalersltd.co.ke,Net15,5,Local,P45496015
+SUP-0002,2016-01-01,,Mombasa Distributors,Kiplangat Ali,+2540729479356,contact@mombasadistributors.co.ke,Net60,10,Local,P22388090
+SUP-0003,2016-01-01,,Kisumu Suppliers,Mrs Mary Ahmed,+2540721739653,contact@kisumusuppliers.co.ke,Net30,12,Local,P95511909
+SUP-0004,2016-01-01,2025-10-06,Nakuru Merchants,Njoroge Mohammed,+2540718412769,contact@nakurumerchants.co.ke,Net15,24,International,P85283645
+SUP-0004,2025-10-06,,Nakuru Merchants,Eng Vivian Wanjala,+2540718412769,contact@nakurumerchants.co.ke,Net15,24,International,P85283645
+SUP-0005,2016-01-01,,Eldoret Traders,Mr Okoth Wanjiku,+2540718210624,contact@eldorettraders.co.ke,Net30,3,International,P58942697
+SUP-0006,2016-01-01,2022-03-21,Thika Distributors,Hon Lilian Ouma,+2540707003042,contact@thikadistributors.co.ke,Net30,23,Local,P99514287
+SUP-0006,2022-03-21,,Thika Distributors,Hon Lilian Ouma,+2540707003042,contact@thikadistributors.co.ke,Net30,9,Local,P99514287
+SUP-0007,2016-01-01,,Kenya Imports Ltd,Mercy Kamau,+2540717917152,contact@kenyaimportsltd.co.ke,Net30,7,International,P65259205
+SUP-0008,2016-01-01,,Local Producers Co-op,Rev Kyalo Khisa,+2540715476257,contact@localproducersco-op.co.ke,Net30,27,Local,P61343880
+SUP-0009,2016-01-01,,Fresh Farms Kenya,Odhiambo Juma,+2540734731818,contact@freshfarmskenya.co.ke,Net30,28,International,P56930359
+SUP-0010,2016-01-01,,Manufacturers Direct,Ms Judith Thuku,+2540714740036,contact@manufacturersdirect.co.ke,Net30,23,Local,P63481198
+SUP-0011,2016-01-01,,Regional Wholesalers,Idris Cherotich,+2540705682940,contact@regionalwholesalers.co.ke,Net60,22,International,P81969657
+SUP-0012,2016-01-01,2020-05-15,County Suppliers,Winfred Mwangi,+2540702935113,contact@countysuppliers.co.ke,Net60,7,International,P15134794
+SUP-0012,2020-05-15,,County Suppliers,Hon Kosgei Muasya,+2540702935113,contact@countysuppliers.co.ke,Net60,7,International,P15134794
+SUP-0013,2016-01-01,,Coast Beverages,Dr Joshua Kimutai,+2540715273534,contact@coastbeverages.co.ke,Net30,24,International,P10226999
+SUP-0014,2016-01-01,,Highlands Produce,Rev Kelvin Musyoka,+2540717110622,contact@highlandsproduce.co.ke,Net60,4,International,P93638503
+SUP-0015,2016-01-01,,Rift Valley Millers,Francis Mutanu,+2540706038571,contact@riftvalleymillers.co.ke,Net15,11,International,P53779528
+SUP-0016,2016-01-01,,Eastern Cereals,Brian Kiarie,+2540723135534,contact@easterncereals.co.ke,Net30,15,International,P33357554
+SUP-0017,2016-01-01,2022-12-12,Western Dairies,Macharia Wanjiku,+2540727812810,contact@westerndairies.co.ke,Net15,28,Local,P50785405
+SUP-0017,2022-12-12,,Western Dairies,Jenipher Karani,+2540727812810,contact@westerndairies.co.ke,Net60,28,Local,P50785405
+SUP-0018,2016-01-01,,North Rift Grains,Victor Wangui,+2540712422633,contact@northriftgrains.co.ke,Net60,18,International,P22534217
+SUP-0019,2016-01-01,2021-11-10,Athi River Logistics,Mr Moses Mohamed,+2540716207974,contact@athiriverlogistics.co.ke,Net30,27,Local,P29777514
+SUP-0019,2021-11-10,,Athi River Logistics,Prof Mercy Khamis,+2540708640615,contact@athiriverlogistics.co.ke,Net30,24,Local,P29777514
+SUP-0020,2016-01-01,,Industrial Area Packers,Kipruto Karanja,+2540735093379,contact@industrialareapackers.co.ke,Net30,22,Local,P24305904
+SUP-0021,2016-01-01,,Mombasa Suppliers 26,Shadrack Githaiga,+2540713950888,contact@mombasasuppliers26.co.ke,Net15,18,International,P16740197
+SUP-0022,2016-01-01,,Kiambu Suppliers 251,Odhiambo Kibet,+2540708658158,contact@kiambusuppliers251.co.ke,Net30,27,International,P99600766
+SUP-0023,2016-01-01,,Nakuru Suppliers 143,Asha Wamalwa,+2540728425149,contact@nakurusuppliers143.co.ke,Net15,28,International,P83534128
+SUP-0024,2016-01-01,2023-04-15,Mombasa Suppliers 693,Edward Naibei,+2540718963715,contact@mombasasuppliers693.co.ke,Net60,10,Local,P95585469
+SUP-0024,2023-04-15,,Mombasa Suppliers 693,Edward Naibei,+2540715606980,contact@mombasasuppliers693.co.ke,Net60,12,Local,P95585469
+SUP-0025,2016-01-01,,Mombasa Suppliers 605,Eng Philomena Abdi,+2540703321531,contact@mombasasuppliers605.co.ke,Net30,9,International,P30509175
+SUP-0026,2016-01-01,2018-05-11,Meru Suppliers 33,David Mwangi,+2540707960328,contact@merusuppliers33.co.ke,Net60,12,International,P65804273
+SUP-0026,2018-05-11,,Meru Suppliers 33,David Mwangi,+2540707381734,contact@merusuppliers33.co.ke,Net60,14,International,P65804273
+SUP-0027,2016-01-01,,Nairobi Suppliers 96,Stella Limo,+2540734700025,contact@nairobisuppliers96.co.ke,Net60,9,International,P68496914
+SUP-0028,2016-01-01,,Nakuru Suppliers 239,Ms Brenda Musa,+2540736639317,contact@nakurusuppliers239.co.ke,Net15,23,International,P32151928
+SUP-0029,2016-01-01,,Nairobi Suppliers 575,Geoffrey Gachoki,+2540719961107,contact@nairobisuppliers575.co.ke,Net30,14,Local,P21267237
+SUP-0030,2016-01-01,,Nakuru Suppliers 734,Mr Gabriel Onyango,+2540718746014,contact@nakurusuppliers734.co.ke,Net30,3,International,P60882459
+SUP-0031,2016-01-01,,Meru Suppliers 226,Yusuf Muthoka,+2540736483562,contact@merusuppliers226.co.ke,Net60,26,International,P47346970
+SUP-0032,2016-01-01,2016-07-19,Machakos Suppliers 604,Ms Purity Wanjiku,+2540735232413,contact@machakossuppliers604.co.ke,Net30,17,Local,P82399599
+SUP-0032,2016-07-19,,Machakos Suppliers 604,Ms Purity Wanjiku,+2540701675419,contact@machakossuppliers604.co.ke,Net30,2,Local,P82399599
+SUP-0033,2016-01-01,,Kiambu Suppliers 829,Munyao Kibet,+2540713117636,contact@kiambusuppliers829.co.ke,Net60,23,Local,P85694715
+SUP-0034,2016-01-01,,Nairobi Suppliers 778,Rodgers Murithi,+2540735299055,contact@nairobisuppliers778.co.ke,Net60,7,Local,P31980274
+SUP-0035,2016-01-01,,Kisumu Suppliers 715,Harriet Koech,+2540701430812,contact@kisumusuppliers715.co.ke,Net60,20,International,P63238057
+SUP-0036,2016-01-01,,Meru Suppliers 349,Wilson Achieng,+2540712275009,contact@merusuppliers349.co.ke,Net15,24,Local,P23676961
+SUP-0037,2016-01-01,,Kiambu Suppliers 160,Dr Abigael Owiti,+2540723030966,contact@kiambusuppliers160.co.ke,Net15,27,Local,P56600900
+SUP-0038,2016-01-01,,Nakuru Suppliers 981,Lameck Okello,+2540722156902,contact@nakurusuppliers981.co.ke,Net15,22,International,P11698142
+SUP-0039,2016-01-01,,Eldoret Suppliers 105,John Nyagaka,+2540732770648,contact@eldoretsuppliers105.co.ke,Net60,13,International,P30534124
+SUP-0040,2016-01-01,,Mombasa Suppliers 390,Hon Kevin Mutua,+2540729111742,contact@mombasasuppliers390.co.ke,Net60,15,International,P53258988
+SUP-0041,2016-01-01,,Mombasa Suppliers 368,Isaack Ali,+2540705679639,contact@mombasasuppliers368.co.ke,Net60,9,International,P86483924
+SUP-0042,2016-01-01,,Eldoret Suppliers 619,Maurice Kibiwott,+2540736643798,contact@eldoretsuppliers619.co.ke,Net30,17,International,P34406132
+SUP-0043,2016-01-01,2024-07-30,Kiambu Suppliers 827,Derick Hassan,+2540725334434,contact@kiambusuppliers827.co.ke,Net60,10,International,P84597009
+SUP-0043,2024-07-30,,Kiambu Suppliers 827,Derick Hassan,+2540739196976,contact@kiambusuppliers827.co.ke,Net60,10,International,P84597009
+SUP-0044,2016-01-01,,Nairobi Suppliers 748,Kelvin Maalim,+2540702561176,contact@nairobisuppliers748.co.ke,Net60,9,International,P42655866
+SUP-0045,2016-01-01,,Machakos Suppliers 550,Benson Ouma,+2540728939993,contact@machakossuppliers550.co.ke,Net15,18,International,P67110154
+SUP-0046,2016-01-01,2021-10-17,Mombasa Suppliers 997,Wangui Wesonga,+2540726902401,contact@mombasasuppliers997.co.ke,Net15,16,International,P51154241
+SUP-0046,2021-10-17,,Mombasa Suppliers 997,Hon Gladys Ngetich,+2540709990305,contact@mombasasuppliers997.co.ke,Net15,25,International,P51154241
+SUP-0047,2016-01-01,2016-11-06,Meru Suppliers 81,Nancy Maina,+2540722686548,contact@merusuppliers81.co.ke,Net30,11,Local,P58436637
+SUP-0047,2016-11-06,,Meru Suppliers 81,Timothy Nyabuto,+2540722686548,contact@merusuppliers81.co.ke,Net30,11,Local,P58436637
+SUP-0048,2016-01-01,2020-05-21,Kiambu Suppliers 850,Mercy Kilonzo,+2540719235577,contact@kiambusuppliers850.co.ke,Net30,29,Local,P87049595
+SUP-0048,2020-05-21,,Kiambu Suppliers 850,Rodah Njihia,+2540705235884,contact@kiambusuppliers850.co.ke,Net30,4,Local,P87049595
+SUP-0049,2023-13-45,2023-13-45,Eldoret Suppliers 592,Maureen Wanjala,+2540703545556,contact@eldoretsuppliers592.co.ke,Net30,27,International,P21432787
+SUP-0050,2016-01-01,,Nakuru Suppliers 722,Paul Hassan,+2540707982241,contact@nakurusuppliers722.co.ke,Net15,21,Local,P80138498
+SUP-0051,2016-01-01,,Mombasa Suppliers 47,Henry Abdullahi,+2540735988757,contact@mombasasuppliers47.co.ke,Net15,15,International,P86320155
+SUP-0052,2016-01-01,2018-02-21,Nakuru Suppliers 792,Steven Akinyi,+2540704486102,contact@nakurusuppliers792.co.ke,Net15,8,International,P98641164
+SUP-0052,2018-02-21,,Nakuru Suppliers 792,Fredrick Rono,+2540704486102,contact@nakurusuppliers792.co.ke,Net15,8,International,P98641164
+SUP-0053,2016-01-01,,Kiambu Suppliers 82,Eugine Odhiambo,+2540715833597,contact@kiambusuppliers82.co.ke,Net15,11,International,P19553585
+SUP-0054,2016-01-01,2023-05-05,Nakuru Suppliers 888,Liban Kamau,+2540724318855,contact@nakurusuppliers888.co.ke,Net60,5,Local,P96924061
+SUP-0054,2023-05-05,,Nakuru Suppliers 888,Kennedy Abdikadir,+2540703783722,contact@nakurusuppliers888.co.ke,Net60,5,Local,P96924061
+SUP-0055,2016-01-01,,Mombasa Suppliers 390,Ruth Kimathi,+2540733086308,contact@mombasasuppliers390.co.ke,Net60,24,International,P64023778
+SUP-0056,2016-01-01,,Kiambu Suppliers 465,Alice Barasa,+2540738344375,contact@kiambusuppliers465.co.ke,Net30,21,Local,P67985905
+SUP-0057,2016-01-01,,Eldoret Suppliers 167,Selina Ochieng,+2540721433940,contact@eldoretsuppliers167.co.ke,Net30,9,Local,P46173157
+SUP-0058,2016-01-01,2025-09-09,Eldoret Suppliers 364,,+2540718893693,contact@eldoretsuppliers364.co.ke,Net15,22,International,P47333543
+SUP-0058,2025-09-09,,Eldoret Suppliers 364,Bishop David Maingi,+2540718893693,contact@eldoretsuppliers364.co.ke,Net60,12,International,P47333543
+SUP-0059,2016-01-01,,Nakuru Suppliers 687,Mr Kiarie Abubakar,+2540716533187,contact@nakurusuppliers687.co.ke,Net60,24,International,P48683937
+SUP-0060,2016-01-01,,Kiambu Suppliers 719,Prof Ibrahim Said,+2540731615675,contact@kiambusuppliers719.co.ke,Net60,4,International,P43876400
+SUP-0061,2016-01-01,2019-04-18,Mombasa Suppliers 624,Loice Kivuva,+2540739633492,contact@mombasasuppliers624.co.ke,Net30,23,International,P65465150
+SUP-0061,2019-04-18,,Mombasa Suppliers 624,Loice Kivuva,+2540739633492,contact@mombasasuppliers624.co.ke,Net30,19,International,P65465150
+SUP-0062,2016-01-01,,Kisumu Suppliers 547,Mrs Brigid Kibet,+2540728350368,contact@kisumusuppliers547.co.ke,Net15,17,Local,P13874790
+SUP-0063,2016-01-01,,Nakuru Suppliers 168,Fr Vincent Kiplimo,+2540713657144,contact@nakurusuppliers168.co.ke,Net60,19,Local,P84121929
+SUP-0064,2016-01-01,,Machakos Suppliers 389,Rogers Nyakundi,+2540712903561,contact@machakossuppliers389.co.ke,Net60,5,Local,P76890827
+SUP-0065,2016-01-01,,Kiambu Suppliers 948,William Akinyi,+2540729537455,,Net15,10,International,P74759996
+SUP-0066,2016-01-01,,Nakuru Suppliers 702,Frida Mutunga,+2540718663605,contact@nakurusuppliers702.co.ke,Net15,6,International,P35583290
+SUP-0067,2016-01-01,,Eldoret Suppliers 864,Peter Rotich,+2540712171218,contact@eldoretsuppliers864.co.ke,Net60,26,International,P55617282
+SUP-0068,2016-01-01,,Nairobi Suppliers 235,Amina Mwaniki,+2540721043037,contact@nairobisuppliers235.co.ke,Net60,25,International,P88777447
+SUP-0069,2016-01-01,,Nairobi Suppliers 825,Bishop Kelvin Kabiru,+2540733493017,contact@nairobisuppliers825.co.ke,Net60,19,International,P56321751
+SUP-0070,2016-01-01,,Eldoret Suppliers 411,Neema Maina,+2540738639414,contact@eldoretsuppliers411.co.ke,Net60,29,Local,P42051937
+SUP-0071,2016-01-01,,Kiambu Suppliers 68,Moraa Adan,+2540717891662,contact@kiambusuppliers68.co.ke,Net30,12,International,P61167978
+SUP-0072,2016-01-01,,Nakuru Suppliers 936,Annet Moraa,+2540719310235,contact@nakurusuppliers936.co.ke,Net30,6,International,P23470708
+SUP-0073,2016-01-01,,Eldoret Suppliers 218,Stanley Joseph,+2540732672884,contact@eldoretsuppliers218.co.ke,Net15,16,Local,P29348212
+SUP-0074,2016-01-01,,Machakos Suppliers 406,Sis Susan Kibet,+2540712255409,contact@machakossuppliers406.co.ke,Net60,27,International,P55440919
+SUP-0075,2016-01-01,,Machakos Suppliers 147,Musyoka Mutua,+2540732347467,contact@machakossuppliers147.co.ke,Net60,29,International,P52501540
+SUP-0076,2016-01-01,,Kiambu Suppliers 143,Dr Carolyne Ibrahim,+2540731602286,contact@kiambusuppliers143.co.ke,Net15,4,Local,P94712997
+SUP-0077,2016-01-01,,Nakuru Suppliers 763,Ms Mary Kipkirui,+2540724816586,contact@nakurusuppliers763.co.ke,Net15,4,International,P23212812
+SUP-0078,2016-01-01,2020-02-13,Kiambu Suppliers 765,Dalmas Maina,+2540708443690,contact@kiambusuppliers765.co.ke,Net30,24,International,P13885234
+SUP-0078,2020-02-13,,Kiambu Suppliers 765,Dalmas Maina,+2540728225725,contact@kiambusuppliers765.co.ke,Net30,24,International,P13885234
+SUP-0079,2016-01-01,,Meru Suppliers 920,Francis Theuri,+2540713937176,contact@merusuppliers920.co.ke,Net30,21,International,P93176117
+SUP-0080,2016-01-01,2019-03-06,Meru Suppliers 371,Rachel Chepkoech,+2540733401116,contact@merusuppliers371.co.ke,Net30,16,International,P71682508
+SUP-0080,2019-03-06,,Meru Suppliers 371,Laban Kipyegon,+2540733401116,contact@merusuppliers371.co.ke,Net30,16,International,P71682508
+SUP-0081,2016-01-01,2025-06-28,Nakuru Suppliers 142,Simeon Khisa,+2540728118722,contact@nakurusuppliers142.co.ke,Net15,10,International,P50550084
+SUP-0081,2025-06-28,,Nakuru Suppliers 142,Hannah Muchiri,+2540717398231,contact@nakurusuppliers142.co.ke,Net15,10,International,P50550084
+SUP-0082,2016-01-01,,Machakos Suppliers 94,James Wabwire,+2540735605016,contact@machakossuppliers94.co.ke,Net30,20,Local,P91390501
+SUP-0083,2016-01-01,,Nairobi Suppliers 882,Sharon Omondi,+2540724860745,contact@nairobisuppliers882.co.ke,Net15,27,International,P39394291
+SUP-0084,2016-01-01,,Mombasa Suppliers 157,Kelvin Barasa,+2540723294774,contact@mombasasuppliers157.co.ke,Net15,5,Local,P51464269
+SUP-0085,2016-01-01,,Kisumu Suppliers 812,Jacinta Achieng,+2540707121355,contact@kisumusuppliers812.co.ke,Net15,6,Local,P49609054
+SUP-0086,2016-01-01,,Meru Suppliers 611,Boaz Charo,+2540733946751,contact@merusuppliers611.co.ke,Net30,6,International,P81249799
+SUP-0087,2016-01-01,,Mombasa Suppliers 395,Rodah Mwihaki,+2540723760597,contact@mombasasuppliers395.co.ke,Net60,28,International,P49613214
+SUP-0088,2016-01-01,,Meru Suppliers 611,Salome Thuku,+2540722932227,contact@merusuppliers611.co.ke,Net60,4,Local,P40281491
+SUP-0089,2016-01-01,2020-12-12,Machakos Suppliers 542,Mary Ojwang,+2540737136687,contact@machakossuppliers542.co.ke,Net30,27,International,P11868130
+SUP-0089,2020-12-12,,Machakos Suppliers 542,Peris Wainaina,+2540727392547,contact@machakossuppliers542.co.ke,Net30,9,International,P11868130
+SUP-0090,2016-01-01,,Kiambu Suppliers 995,Sis Mary Ochieng,+2540724713925,contact@kiambusuppliers995.co.ke,Net15,4,International,P50559278
+SUP-0091,2016-01-01,2022-10-10,Nairobi Suppliers 697,Makau Mutisya,+2540703345069,contact@nairobisuppliers697.co.ke,Net30,3,International,P76118957
+SUP-0091,2022-10-10,,Nairobi Suppliers 697,Mark Muriithi,+2540703345069,contact@nairobisuppliers697.co.ke,Net15,3,International,P76118957
+SUP-0092,2016-01-01,,Mombasa Suppliers 699,Eunice Koros,+2540717960607,contact@mombasasuppliers699.co.ke,Net15,5,International,P92631441
+SUP-0093,2016-01-01,,Kiambu Suppliers 788,Mr Alphonce Ouma,+2540721548888,contact@kiambusuppliers788.co.ke,Net15,13,Local,P69509870
+SUP-0094,2016-01-01,,Eldoret Suppliers 115,Hannah Awuor,+2540717084862,contact@eldoretsuppliers115.co.ke,Net30,23,International,P83076970
+SUP-0095,2016-01-01,,Kiambu Suppliers 446,Muriuki Mburu,+2540722015861,contact@kiambusuppliers446.co.ke,Net60,10,Local,P26395999
+SUP-0096,2016-01-01,,Kisumu Suppliers 465,Mohammed Gacheru,+2540732538024,contact@kisumusuppliers465.co.ke,Net15,8,Local,P16788532
+SUP-0097,2016-01-01,2019-07-04,Nairobi Suppliers 977,Loice Jumba,+2540713112652,contact@nairobisuppliers977.co.ke,Net15,8,Local,P84384510
+SUP-0097,2019-07-04,,Nairobi Suppliers 977,Mrs Grace Munyi,+2540713112652,contact@nairobisuppliers977.co.ke,Net15,29,Local,P84384510
+SUP-0098,2016-01-01,2020-09-18,Kiambu Suppliers 996,Pastor Tom Thomas,+2540715205279,,Net30,5,Local,P27690330
+SUP-0098,2020-09-18,,Kiambu Suppliers 996,Pastor Tom Thomas,+2540721264762,contact@kiambusuppliers996.co.ke,Net15,5,Local,P27690330
+SUP-0099,2016-01-01,,Kisumu Suppliers 520,Jane Nkatha,+2540738520810,contact@kisumusuppliers520.co.ke,Net60,18,Local,P70667140
+SUP-0100,2016-01-01,,Mombasa Suppliers 892,Mrs Evalyne Kimani,+2540709748499,contact@mombasasuppliers892.co.ke,Net60,16,Local,P18163847
+SUP-0101,2016-01-01,2020-05-13,Kiambu Suppliers 862,Fr Isaac Jepkorir,+2540738151684,contact@kiambusuppliers862.co.ke,Net15,5,International,P69533928
+SUP-0101,2020-05-13,,Kiambu Suppliers 862,Mary Wafula,+2540738151684,contact@kiambusuppliers862.co.ke,Net15,5,International,P69533928
+SUP-0102,2016-01-01,,Nakuru Suppliers 157,Prof Loice Sande,+2540739901266,contact@nakurusuppliers157.co.ke,Net60,16,International,P23311507
+SUP-0103,2016-01-01,,Eldoret Suppliers 781,Beatrice Mugo,+2540704607488,contact@eldoretsuppliers781.co.ke,Net60,16,Local,P65541117
+SUP-0104,2016-01-01,,Kisumu Suppliers 553,,+2540737689582,contact@kisumusuppliers553.co.ke,Net60,25,Local,P51949529
+SUP-0105,2016-01-01,2019-07-13,Nairobi Suppliers 614,Sharon Mule,+2540727279729,contact@nairobisuppliers614.co.ke,Net30,23,International,P19010480
+SUP-0105,2019-07-13,,Nairobi Suppliers 614,Mwiti Simiyu,+2540723182975,contact@nairobisuppliers614.co.ke,Net30,23,International,P19010480
+SUP-0106,2016-01-01,,Eldoret Suppliers 501,Martha Wangari,+2540707892225,contact@eldoretsuppliers501.co.ke,Net60,29,International,P16904975
+SUP-0107,2016-01-01,,Nairobi Suppliers 115,Rev Nicholas Minayo,+2540726899644,contact@nairobisuppliers115.co.ke,Net30,20,Local,P30767532
+SUP-0108,2016-01-01,,Eldoret Suppliers 900,Brenda Muiruri,+2540712815603,contact@eldoretsuppliers900.co.ke,Net60,29,International,P25419645
+SUP-0109,2016-01-01,,Kiambu Suppliers 246,Faith Munene,+2540718199311,contact@kiambusuppliers246.co.ke,Net15,26,Local,P91737913
+SUP-0110,2016-01-01,,Nairobi Suppliers 247,Nganga Kiplangat,+2540721485753,contact@nairobisuppliers247.co.ke,Net30,10,International,P55610493
+SUP-0111,2016-01-01,2019-11-05,Mombasa Suppliers 88,Terry Mukhwana,+2540713403361,contact@mombasasuppliers88.co.ke,Net15,23,International,P19339597
+SUP-0111,2019-11-05,,Mombasa Suppliers 88,Terry Mukhwana,+2540717311494,contact@mombasasuppliers88.co.ke,Net60,12,International,P19339597
+SUP-0112,2016-01-01,2022-02-09,Machakos Suppliers 836,Rev Mercy Mwiti,+2540701882629,contact@machakossuppliers836.co.ke,Net30,7,Local,P20949687
+SUP-0112,2022-02-09,,Machakos Suppliers 836,Rev Mercy Mwiti,+2540737948850,contact@machakossuppliers836.co.ke,Net30,15,Local,P20949687
+SUP-0113,2016-01-01,,Mombasa Suppliers 779,Otieno Ngina,+2540739840487,contact@mombasasuppliers779.co.ke,Net15,11,Local,P39597483
+SUP-0114,2016-01-01,,Kisumu Suppliers 132,Mulwa Murithi,+2540701128967,contact@kisumusuppliers132.co.ke,Net30,11,Local,P28419343
+SUP-0115,2016-01-01,2021-07-10,Machakos Suppliers 970,Denis Kipkoech,+2540726504979,contact@machakossuppliers970.co.ke,Net30,2,International,P67801537
+SUP-0115,2021-07-10,,Machakos Suppliers 970,Samuel Gitonga,+2540726504979,contact@machakossuppliers970.co.ke,Net30,2,Local,P67801537
+SUP-0116,2016-01-01,,Kisumu Suppliers 272,Dr Daisy Ibrahim,+2540731314430,contact@kisumusuppliers272.co.ke,Net60,4,International,P87277086
+SUP-0117,2016-01-01,,Meru Suppliers 988,Laban Omar,+2540738007741,contact@merusuppliers988.co.ke,Net60,5,International,P12799319
+SUP-0118,2016-01-01,,Nakuru Suppliers 952,Fatuma Mutunga,+2540718719145,contact@nakurusuppliers952.co.ke,Net15,13,Local,P68614462
+SUP-0119,2016-01-01,,Nakuru Suppliers 731,Patrick Irungu,+2540718309439,contact@nakurusuppliers731.co.ke,Net15,14,Local,P63118906
+SUP-0120,2016-01-01,,Kiambu Suppliers 409,Paul Mungai,+2540724717362,contact@kiambusuppliers409.co.ke,Net60,26,Local,P20251466
+SUP-0121,2016-01-01,,Eldoret Suppliers 449,Eng Solomon Wambua,+2540709902071,contact@eldoretsuppliers449.co.ke,Net15,8,International,P57123808
+SUP-0122,2016-01-01,2020-06-27,Machakos Suppliers 124,Enock Langat,+2540714963933,contact@machakossuppliers124.co.ke,Net30,6,International,P36477373
+SUP-0122,2020-06-27,,Machakos Suppliers 124,Otieno Orina,+2540714963933,contact@machakossuppliers124.co.ke,Net30,6,International,P36477373
+SUP-0123,2016-01-01,2024-07-29,Nakuru Suppliers 231,Mary Abdullahi,+2540736422534,contact@nakurusuppliers231.co.ke,Net15,12,Local,P69023966
+SUP-0123,2024-07-29,,Nakuru Suppliers 231,Wachira Maina,+2540721942411,contact@nakurusuppliers231.co.ke,Net60,3,Local,P69023966
+SUP-0124,2016-01-01,,Mombasa Suppliers 347,Eng Jacinta Mbugua,+2540722287332,contact@mombasasuppliers347.co.ke,Net15,29,Local,P92545028
+SUP-0125,2016-01-01,,Nairobi Suppliers 603,Eng Elizabeth Gakii,+2540738763013,contact@nairobisuppliers603.co.ke,Net15,19,Local,P70362235
+SUP-0126,2016-01-01,,Nakuru Suppliers 603,Dr Kinyua Ahmed,+2540716394323,,Net15,17,Local,P18304547
+SUP-0127,2016-01-01,2018-07-23,Nakuru Suppliers 8,Bishop Maina Wanyama,+2540722414808,contact@nakurusuppliers8.co.ke,Net15,22,Local,P15253567
+SUP-0127,2018-07-23,,Nakuru Suppliers 8,Daniel Chepkorir,+2540717105194,contact@nakurusuppliers8.co.ke,Net60,22,Local,P15253567
+SUP-0128,2016-01-01,,Mombasa Suppliers 725,Nzioka Musa,+2540706614484,contact@mombasasuppliers725.co.ke,Net30,12,Local,P84888554
+SUP-0129,2016-01-01,2025-01-29,Nairobi Suppliers 235,Fr Wanjiku Kipkosgei,+2540725227787,contact@nairobisuppliers235.co.ke,Net15,29,Local,P54743095
+SUP-0129,2025-01-29,,Nairobi Suppliers 235,Fr Wanjiku Kipkosgei,+2540725227787,contact@nairobisuppliers235.co.ke,Net15,29,Local,P54743095
+SUP-0130,2016-01-01,,Mombasa Suppliers 928,Sis Agnes Wanjiku,+2540706193922,contact@mombasasuppliers928.co.ke,Net15,14,International,P27152188
+SUP-0131,2016-01-01,,Nairobi Suppliers 881,Fr Ian Mutethia,+2540708103580,contact@nairobisuppliers881.co.ke,Net15,13,Local,P58667035
+SUP-0132,2016-01-01,2020-07-24,Eldoret Suppliers 73,Hon Derick Kinyanjui,+2540716733317,contact@eldoretsuppliers73.co.ke,Net60,8,Local,P28463709
+SUP-0132,2020-07-24,,Eldoret Suppliers 73,Agnes Chepkurui,+2540716733317,contact@eldoretsuppliers73.co.ke,Net60,8,Local,P28463709
+SUP-0133,2016-01-01,2025-09-06,Nakuru Suppliers 286,Lilian Anyango,+2540723198638,contact@nakurusuppliers286.co.ke,Net15,14,Local,P31776452
+SUP-0133,2025-09-06,,Nakuru Suppliers 286,Lilian Anyango,+2540723198638,contact@nakurusuppliers286.co.ke,Net15,13,Local,P31776452
+SUP-0134,2016-01-01,,Machakos Suppliers 220,Elizabeth Hussein,+2540718452417,contact@machakossuppliers220.co.ke,Net15,11,International,P41407343
+SUP-0135,2016-01-01,,Kisumu Suppliers 741,Stephen Ouma,+2540728868776,contact@kisumusuppliers741.co.ke,Net30,13,International,P71965637
+SUP-0136,2016-01-01,,Machakos Suppliers 249,Rev Jackline Ng'ang'a,+2540739437374,contact@machakossuppliers249.co.ke,Net15,15,Local,P36802975
+SUP-0137,2016-01-01,,Machakos Suppliers 827,,+2540715194357,contact@machakossuppliers827.co.ke,Net30,22,International,P59823245
+SUP-0138,2016-01-01,2022-12-18,Meru Suppliers 195,Mr Bakari Issak,+2540709655523,contact@merusuppliers195.co.ke,Net30,11,Local,P31516757
+SUP-0138,2022-12-18,,Meru Suppliers 195,Mr Bakari Issak,+2540732538698,contact@merusuppliers195.co.ke,Net60,11,Local,P31516757
+SUP-0139,2016-01-01,,Mombasa Suppliers 100,John Njoki,+2540731893502,contact@mombasasuppliers100.co.ke,Net60,18,International,P41645597
+SUP-0140,2016-01-01,,Meru Suppliers 363,Pastor Boaz Wavinya,+2540707289990,contact@merusuppliers363.co.ke,Net30,2,International,P23298711
+SUP-0141,2016-01-01,,Meru Suppliers 421,Sis Rael Mutisya,+2540723450300,contact@merusuppliers421.co.ke,Net30,3,International,P73411827
+SUP-0142,2016-01-01,2021-02-18,Machakos Suppliers 885,Ambrose Osman,+2540718870361,contact@machakossuppliers885.co.ke,Net60,21,Local,P20633503
+SUP-0142,2021-02-18,,Machakos Suppliers 885,Pastor Mary Chepkemoi,+2540732865405,contact@machakossuppliers885.co.ke,Net30,15,Local,P20633503
+SUP-0143,2016-01-01,,Nairobi Suppliers 690,Haron Aoko,+2540732053729,contact@nairobisuppliers690.co.ke,Net30,28,International,P90092958
+SUP-0144,2016-01-01,,Mombasa Suppliers 63,Fr Kemboi Ombasa,+2540713408819,contact@mombasasuppliers63.co.ke,Net60,15,Local,P92518345
+SUP-0145,2016-01-01,,Meru Suppliers 746,Joseph Kinyua,+2540734142605,contact@merusuppliers746.co.ke,Net15,23,Local,P80260907
+SUP-0146,2016-01-01,,Eldoret Suppliers 820,Caleb Ochieng,+2540709825812,contact@eldoretsuppliers820.co.ke,Net15,18,Local,P62405812
+SUP-0147,2016-01-01,,Mombasa Suppliers 255,Dr Rahab Kariuki,+2540707490791,contact@mombasasuppliers255.co.ke,Net60,10,Local,P57928328
+SUP-0148,2016-01-01,,Nakuru Suppliers 195,Catherine Ouma,+2540725045421,contact@nakurusuppliers195.co.ke,Net15,23,Local,P88101741
+SUP-0149,2016-01-01,2023-08-31,Machakos Suppliers 144,Hon Rehema Kiptoo,+2540723238241,contact@machakossuppliers144.co.ke,Net30,13,International,P96274567
+SUP-0149,2023-08-31,,Machakos Suppliers 144,Hon Rehema Kiptoo,+2540734058117,contact@machakossuppliers144.co.ke,Net60,8,Local,P96274567
+SUP-0150,2016-01-01,,Meru Suppliers 188,Stacy Kiprono,+2540706294819,contact@merusuppliers188.co.ke,Net60,18,International,P82884346
+SUP-0151,2016-01-01,,Kiambu Suppliers 474,Jacob Angwenyi,+2540704206183,contact@kiambusuppliers474.co.ke,Net60,13,Local,P98010774
+SUP-0152,2016-01-01,,Nakuru Suppliers 896,Eng Teresia Yego,+2540707174337,contact@nakurusuppliers896.co.ke,Net60,30,International,P69020451
+SUP-0153,2016-01-01,,Mombasa Suppliers 454,Joseph Mohamed,+2540736688090,contact@mombasasuppliers454.co.ke,Net30,17,International,P59304469
+SUP-0154,2016-01-01,,Mombasa Suppliers 52,Lucy Mohamed,+2540722385991,contact@mombasasuppliers52.co.ke,Net15,15,Local,P67795113
+SUP-0155,2016-01-01,,Nairobi Suppliers 993,Nancy Mungai,+2540715928582,contact@nairobisuppliers993.co.ke,Net60,5,Local,P54012664
+SUP-0156,2016-01-01,,Mombasa Suppliers 949,Nafula Ahmed,+2540728481225,contact@mombasasuppliers949.co.ke,Net15,24,International,P32366682
+SUP-0157,2016-01-01,,Nakuru Suppliers 171,Michael Chepkoech,+2540728501590,contact@nakurusuppliers171.co.ke,Net30,25,International,P92523968
+SUP-0158,2016-01-01,,Meru Suppliers 498,Kariuki Kathure,+2540721962308,contact@merusuppliers498.co.ke,Net30,23,International,P58762794
+SUP-0159,2016-01-01,2021-10-13,Machakos Suppliers 219,Lydiah Wanjiku,+2540711522452,contact@machakossuppliers219.co.ke,Net30,29,International,P14670638
+SUP-0159,2021-10-13,,Machakos Suppliers 219,Millicent Kimtai,+2540711522452,contact@machakossuppliers219.co.ke,Net30,6,International,P14670638
+SUP-0160,2016-01-01,2023-03-29,Meru Suppliers 925,Kibet Misiko,+2540727241348,contact@merusuppliers925.co.ke,Net60,26,Local,P87030477
+SUP-0160,2023-03-29,,Meru Suppliers 925,Emmanuel David,+2540725187788,contact@merusuppliers925.co.ke,Net30,14,Local,P87030477
+SUP-0161,2016-01-01,,Nairobi Suppliers 169,Prof James Nzomo,+2540705391883,contact@nairobisuppliers169.co.ke,Net60,24,International,P38799154
+SUP-0162,2016-01-01,,Meru Suppliers 3,Dr Wesley Nekesa,+2540729240971,contact@merusuppliers3.co.ke,Net30,5,Local,P19939096
+SUP-0163,2016-01-01,,Meru Suppliers 272,Beatrice Mwaura,+2540732472884,contact@merusuppliers272.co.ke,Net15,29,International,P99635939
+SUP-0164,2016-01-01,2023-08-22,Machakos Suppliers 293,Ms Sheila Mutuku,+2540705871470,contact@machakossuppliers293.co.ke,Net60,29,Local,P95590648
+SUP-0164,2023-08-22,,Machakos Suppliers 293,Fr James Kabiru,+2540713329967,contact@machakossuppliers293.co.ke,Net60,29,Local,P95590648
+SUP-0165,2016-01-01,,Meru Suppliers 714,,+2540712446455,,Net30,11,International,P74245343
+SUP-0166,2016-01-01,,Machakos Suppliers 159,Gladys Morara,+2540732237331,contact@machakossuppliers159.co.ke,Net30,12,Local,P70394554
+SUP-0167,2016-01-01,,Nakuru Suppliers 304,Francis Jepkemboi,+2540723153097,contact@nakurusuppliers304.co.ke,Net15,22,Local,P27318510
+SUP-0168,2016-01-01,2021-01-21,Nakuru Suppliers 992,,+2540703083077,contact@nakurusuppliers992.co.ke,Net15,6,International,P32099899
+SUP-0168,2021-01-21,,Nakuru Suppliers 992,Njoki Chepkorir,+2540722323049,contact@nakurusuppliers992.co.ke,Net15,6,International,P32099899
+SUP-0169,2016-01-01,,Nairobi Suppliers 594,Eng Sandra Ali,+2540729950276,contact@nairobisuppliers594.co.ke,Net30,18,Local,P89431184
+SUP-0170,2016-01-01,2022-12-09,Nairobi Suppliers 766,Kevin Chepkorir,+2540713872269,contact@nairobisuppliers766.co.ke,Net15,21,International,P85647532
+SUP-0170,2022-12-09,,Nairobi Suppliers 766,Kevin Chepkorir,+2540724536777,contact@nairobisuppliers766.co.ke,Net15,30,International,P85647532
+SUP-0171,2016-01-01,,Eldoret Suppliers 59,Mrs Pauline Wekesa,+2540726068298,contact@eldoretsuppliers59.co.ke,Net60,9,International,P49920898
+SUP-0172,2016-01-01,2022-04-13,Nairobi Suppliers 599,Paul Boru,+2540703652149,contact@nairobisuppliers599.co.ke,Net60,15,International,P72336371
+SUP-0172,2022-04-13,,Nairobi Suppliers 599,Paul Boru,+2540726794356,contact@nairobisuppliers599.co.ke,Net60,15,International,P72336371
+SUP-0173,2016-01-01,2021-03-11,Machakos Suppliers 515,Salma Nkatha,+2540718826111,contact@machakossuppliers515.co.ke,Net30,10,International,P43275109
+SUP-0173,2021-03-11,,Machakos Suppliers 515,John Muga,+2540718826111,contact@machakossuppliers515.co.ke,Net30,10,International,P43275109
+SUP-0174,2016-01-01,,Kisumu Suppliers 59,Nancy Mburu,+2540724184887,contact@kisumusuppliers59.co.ke,Net30,17,International,P76942394
+SUP-0175,2016-01-01,2024-11-03,Mombasa Suppliers 872,Okoth Wesonga,+2540731388833,,Net30,14,International,P42310051
+SUP-0175,2024-11-03,,Mombasa Suppliers 872,Waweru Ali,+2540738895137,contact@mombasasuppliers872.co.ke,Net30,30,International,P42310051
+SUP-0176,2016-01-01,,Kisumu Suppliers 71,Naomi Abdullahi,+2540727765480,contact@kisumusuppliers71.co.ke,Net60,3,International,P16866268
+SUP-0177,2016-01-01,,Mombasa Suppliers 692,Anthony Mungai,+2540717082139,contact@mombasasuppliers692.co.ke,Net15,11,Local,P61854861
+SUP-0178,2016-01-01,,Nakuru Suppliers 414,Mwangi Lumbasi,+2540722993318,contact@nakurusuppliers414.co.ke,Net30,5,International,P60089832
+SUP-0179,2016-01-01,2021-02-06,Mombasa Suppliers 965,Collins Ngigi,+2540727133857,contact@mombasasuppliers965.co.ke,Net30,8,International,P77119320
+SUP-0179,2021-02-06,,Mombasa Suppliers 965,Margaret Juma,+2540727133857,contact@mombasasuppliers965.co.ke,Net30,30,International,P77119320
+SUP-0180,2016-01-01,,Nakuru Suppliers 593,Susan Daniel,+2540726344047,contact@nakurusuppliers593.co.ke,Net30,14,International,P89688374
+SUP-0181,2016-01-01,,Nairobi Suppliers 635,Eng Dennis Mwirigi,+2540736029651,contact@nairobisuppliers635.co.ke,Net60,28,Local,P59440148
+SUP-0182,2016-01-01,,Mombasa Suppliers 430,Achieng Wechuli,+2540707988386,contact@mombasasuppliers430.co.ke,Net15,11,Local,P90115852
+SUP-0183,2016-01-01,,Eldoret Suppliers 958,Stanley Mzungu,+2540711861596,contact@eldoretsuppliers958.co.ke,Net15,17,Local,P80361272
+SUP-0184,2016-01-01,,Kiambu Suppliers 210,Prof Simon Nyongesa,+2540733479264,contact@kiambusuppliers210.co.ke,Net15,9,Local,P86849080
+SUP-0185,2016-01-01,2021-02-27,Eldoret Suppliers 245,Mary Katana,+2540704200829,contact@eldoretsuppliers245.co.ke,Net30,16,International,P66207740
+SUP-0185,2021-02-27,,Eldoret Suppliers 245,Mary Katana,+2540732044906,contact@eldoretsuppliers245.co.ke,Net30,16,International,P66207740
+SUP-0186,2016-01-01,,Kiambu Suppliers 406,Janeth Chemutai,+2540739816043,contact@kiambusuppliers406.co.ke,Net60,12,Local,P71694994
+SUP-0187,2016-01-01,,Kisumu Suppliers 688,Josiah Mutiso,+2540726943949,contact@kisumusuppliers688.co.ke,Net15,26,International,P91883092
+SUP-0188,2016-01-01,,Kiambu Suppliers 469,Fr James Otieno,+2540715680950,contact@kiambusuppliers469.co.ke,Net15,11,Local,P49945150
+SUP-0189,2016-01-01,,Eldoret Suppliers 952,Joan Irungu,+2540719204110,contact@eldoretsuppliers952.co.ke,Net60,17,International,P85227370
+SUP-0190,2016-01-01,,Mombasa Suppliers 10,Jael Cheruiyot,+2540725828304,contact@mombasasuppliers10.co.ke,Net30,20,International,P62953249
+SUP-0191,2016-01-01,,Machakos Suppliers 637,Fr James Maina,+2540715872986,contact@machakossuppliers637.co.ke,Net30,11,Local,P56488123
+SUP-0192,2016-01-01,,Mombasa Suppliers 76,Brian Muema,+2540729037616,contact@mombasasuppliers76.co.ke,Net30,8,International,P85432781
+SUP-0193,2016-01-01,2021-08-29,Nakuru Suppliers 519,Elizabeth Gitari,+2540712832517,contact@nakurusuppliers519.co.ke,Net15,25,Local,P42542167
+SUP-0193,2021-08-29,,Nakuru Suppliers 519,Elizabeth Gitari,+2540711880654,contact@nakurusuppliers519.co.ke,Net60,26,Local,P42542167
+SUP-0194,2016-01-01,,Kiambu Suppliers 136,Chelangat Onyango,+2540717826774,contact@kiambusuppliers136.co.ke,Net15,30,International,P74082055
+SUP-0195,2016-01-01,,Eldoret Suppliers 903,Pastor Kariuki Muendo,+2540726388299,contact@eldoretsuppliers903.co.ke,Net60,22,Local,P22007214
+SUP-0196,2016-01-01,,Mombasa Suppliers 901,,+2540719978365,contact@mombasasuppliers901.co.ke,Net15,25,Local,P33496796
+SUP-0197,2016-01-01,,Nakuru Suppliers 379,Simon Nyabuto,+2540711609681,contact@nakurusuppliers379.co.ke,Net60,27,International,P35006323
+SUP-0198,2016-01-01,2018-03-07,Kiambu Suppliers 162,Prof Charity Odhiambo,+2540721628578,contact@kiambusuppliers162.co.ke,Net30,11,Local,P54968591
+SUP-0198,2018-03-07,,Kiambu Suppliers 162,Prof Charity Odhiambo,+2540721628578,contact@kiambusuppliers162.co.ke,Net30,11,Local,P54968591
+SUP-0199,2016-01-01,2017-11-15,Machakos Suppliers 854,Prof Ouma Kibet,+2540712889899,contact@machakossuppliers854.co.ke,Net60,7,International,P97011385
+SUP-0199,2017-11-15,,Machakos Suppliers 854,Nancy Wainaina,+2540712889899,contact@machakossuppliers854.co.ke,Net60,7,International,P97011385
+SUP-0200,2016-01-01,,Kiambu Suppliers 627,Mary Cherono,+2540738175669,contact@kiambusuppliers627.co.ke,Net15,12,Local,P63798927
+SUP-0125-DUP,2016-01-01,,Nairobi Suppliers 603,Eng Elizabeth Gakii,+2540738763013,contact@nairobisuppliers603.co.ke,Net15,19,Local,P70362235
+SUP-0005-DUP,2016-01-01,,Eldoret Traders,Mr Okoth Wanjiku,+2540718210624,contact@eldorettraders.co.ke,Net30,3,International,P58942697
+SUP-0132-DUP,2016-01-01,2020-07-24,Eldoret Suppliers 73,Hon Derick Kinyanjui,+2540716733317,contact@eldoretsuppliers73.co.ke,Net60,8,Local,P28463709
