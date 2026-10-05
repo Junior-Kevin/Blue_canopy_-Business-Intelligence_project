@@ -1,0 +1,25 @@
+order_id,order_date,customer_id,delivery_address,delivery_fee,payment_method,status,total_amount
+ECORD-00000001,2023-03-04T03:01:00,CUST-073626,"433 Rose Springs, New Lewistown, CO 29158",0,Card,Shipped,9549.51
+ECORD-00000002,2017-01-18T06:14:00,CUST-135213,"386 Karanja Harbors, Port Maureenchester, MA 36922",500,Bank Transfer,Pending,42956.79
+ECORD-00000003,2024-03-07T14:34:00,CUST-033403,"16155 Khisa Stream Suite 816, New Williamstad, OK 25704",300,Mobile Money,Pending,101268.24
+ECORD-00000004,2020-04-05T08:29:00,CUST-097604,"341 Hannah Light, Wanguistad, GA 49021",300,Card,Shipped,102557.91
+ECORD-00000005,2020-04-03T08:59:00,CUST-149025,"192 Charles Light Suite 835, East Damarismouth, MO 35594",0,Card,Delivered,18456.21
+ECORD-00000006,2020-07-01T08:04:00,CUST-056452,"76724 Hassan Points Suite 969, Cherotichberg, NY 65187",500,Bank Transfer,Delivered,119252.04
+ECORD-00000007,2017-07-25T07:47:00,CUST-114924-DUP,"22691 Mwendwa Mountain, Phylistown, TX 94967",500,Bank Transfer,Shipped,4415.22
+ECORD-00000008,2017-07-20T16:31:00,CUST-024313,"514 Wanjiku Alley Suite 828, Port Faithhaven, PA 26572",200,Card,Delivered,12159.25
+ECORD-00000009,2022-01-08T08:49:00,CUST-091028,"809 Osman Creek, Gloriaport, IA 08093",0,Card,Shipped,4608.58
+ECORD-00000010,2019-05-07T20:32:00,CUST-053211,"71822 Ruwa Expressway, Dansonchester, IL 71187",0,Card,Shipped,29332.99
+ECORD-00000011,2025-11-05T18:05:00,CUST-022909,"465 Philip Mission, East Felixmouth, AK 77611",200,Bank Transfer,Delivered,16363.52
+ECORD-00000012,2017-11-07T08:33:00,CUST-113196,"10310 Maina Freeway, Graceborough, ND 17843",200,Card,Returned,30114.35
+ECORD-00000013,2016-08-29T07:04:00,CUST-008405,"76311 Awuor Loop Suite 010, Ndungeville, IA 25613",500,Mobile Money,Pending,324757
+ECORD-00000014,2020-08-10T14:55:00,CUST-014490,"62473 Wairimu Wall Apt. 080, Port Nellyburgh, MT 64154",0,Bank Transfer,Delivered,8558.73
+ECORD-00000015,2017-03-23T07:12:00,CUST-050883,"26064 Wambua Square Suite 234, North Muia, ND 08490",300,Bank Transfer,Delivered,4144.98
+ECORD-00000016,2016-11-04T14:51:00,CUST-147249,"97882 Penina Common, North Joe, TX 31329",0,Card,Pending,215.66
+ECORD-00000017,2025-07-08T07:10:00,CUST-108720,"909 Ronald Prairie, Immaculateborough, TN 94373",0,Mobile Money,Delivered,541.31
+ECORD-00000018,2020-05-18T08:59:00,CUST-121718,"2475 John Road Apt. 183, Victorstad, FM 09517",0,Mobile Money,Delivered,3878.88
+ECORD-00000019,2022-06-30T23:34:00,CUST-016303,"2784 Grace Plaza Suite 124, North Dianaberg, KY 37431",500,Bank Transfer,Shipped,21949.43
+ECORD-00000020,2016-10-07T19:04:00,CUST-062955,"48740 Mercy Village Suite 005, Lake Jepchumba, GA 97655",200,Mobile Money,Shipped,61692.07
+ECORD-00000021,2016-12-01T13:42:00,CUST-067245-DUP,"011 Wainaina Village Suite 982, Hassanport, MN 05730",300,Bank Transfer,Shipped,44232.6
+ECORD-00000022,2024-06-06T02:00:00,CUST-122603,"PSC 3315, Box 8692, APO AE 21800",0,Bank Transfer,Cancelled,29678.4
+ECORD-00000023,2018-12-22T04:59:00,CUST-093378,"Unit 2602 Box 5634, DPO AE 92418",200,Card,Delivered,6424.1
+ECORD-00000024,2022-11-10T20:33:00,CUST-002092,"3375 Jepkorir Well, East Joseph, ID 52728",0,Bank Transfer,Delivered,23078.85
