@@ -60,7 +60,7 @@ The repository also includes warehouse exploration and connection assets under [
 
 The Power BI project files are under [`power bi/`](power%20bi/). Open [`model.pbip`](power%20bi/model.pbip) in Power BI Desktop to work with the report and semantic model as a Power BI Project. The semantic model contains the dimensional and fact structures used to analyze retail performance; its measures and calculated columns provide reusable business calculations for report visuals.
 
-The report is designed to support interactive analysis through KPI cards, charts, exception-focused tables, and filters. Dashboard areas include sales and profitability, inventory and supply chain, store financial performance, customer experience and loyalty, and marketing and competitive context.
+The report is designed to support interactive analysis through KPI cards, charts, exception-focused tables, and filters. Dashboard areas include sales and profitability, inventory and supply chain, store financial performance, customer experience and loyalty, marketing and competitive context, and HR analytics. The HR page currently analyzes modeled employee attributes such as department, job level, salary, tenure, and retention risk, with POS sales linked to active cashiers. Shift attendance and time-tracking data are not yet part of the Power BI semantic model, so absence and overtime analysis is not currently included.
 
 ## Repository guide
 
