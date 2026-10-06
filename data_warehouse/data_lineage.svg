@@ -1,0 +1,361 @@
+<svg viewBox="0 0 1680 1180" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="1680" height="1180" fill="#FAFAF8"/>
+
+  <!-- ============================================================ -->
+  <!-- TITLE                                                         -->
+  <!-- ============================================================ -->
+  <text x="840" y="42" text-anchor="middle" font-size="26" font-weight="700" fill="#2B2A27">Blue Canopy BI — Data Lineage</text>
+  <text x="840" y="68" text-anchor="middle" font-size="15" fill="#5F5E5A">End-to-end traceability from source systems to Power BI reports across the medallion architecture</text>
+
+  <!-- Legend -->
+  <g transform="translate(30, 88)" font-size="12" fill="#2B2A27">
+    <text x="0" y="0" font-weight="700" font-size="13" fill="#5F5E5A">DOMAIN LEGEND</text>
+    <rect x="0"    y="10" width="14" height="14" fill="#E76F51" rx="3"/>
+    <text x="22"   y="22">Sales &amp; Orders</text>
+    <rect x="120"  y="10" width="14" height="14" fill="#2A9D8F" rx="3"/>
+    <text x="142"  y="22">Inventory &amp; Supply</text>
+    <rect x="270"  y="10" width="14" height="14" fill="#E9C46A" rx="3"/>
+    <text x="292"  y="22">Customer &amp; Loyalty</text>
+    <rect x="410"  y="10" width="14" height="14" fill="#8A7BC8" rx="3"/>
+    <text x="432"  y="22">Marketing &amp; Competitors</text>
+    <rect x="600"  y="10" width="14" height="14" fill="#4A90C4" rx="3"/>
+    <text x="622"  y="22">Financial</text>
+    <rect x="700"  y="10" width="14" height="14" fill="#8F8D87" rx="3"/>
+    <text x="722"  y="22">Reference (stores, HR, geo)</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- COLUMN HEADERS                                                -->
+  <!-- ============================================================ -->
+  <g font-size="15" font-weight="700" fill="#FFFFFF">
+    <rect x="30"    y="130" width="270" height="42" rx="8" fill="#8A8778"/>
+    <text x="165"   y="157" text-anchor="middle">OLTP SOURCES</text>
+
+    <rect x="330"   y="130" width="270" height="42" rx="8" fill="#B08D57"/>
+    <text x="465"   y="157" text-anchor="middle">BRONZE (raw)</text>
+
+    <rect x="640"   y="130" width="380" height="42" rx="8" fill="#8F8D87"/>
+    <text x="830"   y="157" text-anchor="middle">SILVER (cleaned)</text>
+
+    <rect x="1060"  y="130" width="380" height="42" rx="8" fill="#D9A72C"/>
+    <text x="1250"  y="157" text-anchor="middle">GOLD (star schema)</text>
+
+    <rect x="1480"  y="130" width="170" height="42" rx="8" fill="#378ADD"/>
+    <text x="1565"  y="157" text-anchor="middle">POWER BI</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- ROW 1 — SALES & ORDERS                                        -->
+  <!-- ============================================================ -->
+  <g>
+    <!-- Sources -->
+    <rect x="30" y="190" width="270" height="60" rx="6" fill="#FDEDE7" stroke="#E76F51" stroke-width="1.5"/>
+    <text x="165" y="215" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">POS &amp; E-commerce</text>
+    <text x="165" y="235" text-anchor="middle" font-size="12" fill="#5F5E5A">pos_transactions · pos_line_items</text>
+    <text x="165" y="248" text-anchor="middle" font-size="12" fill="#5F5E5A">ecommerce_orders · ecom_lines · returns</text>
+
+    <!-- Bronze -->
+    <rect x="330" y="190" width="270" height="60" rx="6" fill="#FBF3E0" stroke="#C9A876" stroke-width="1.5"/>
+    <text x="465" y="215" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">5 bronze tables</text>
+    <text x="465" y="235" text-anchor="middle" font-size="12" fill="#5F5E5A">pos_transactions_raw</text>
+    <text x="465" y="248" text-anchor="middle" font-size="12" fill="#5F5E5A">+ pos_lines · ecom_orders · ecom_lines · returns</text>
+
+    <!-- Silver -->
+    <rect x="640" y="190" width="380" height="60" rx="6" fill="#F2F1EC" stroke="#B4B2A9" stroke-width="1.5"/>
+    <text x="830" y="215" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">5 silver tables</text>
+    <text x="830" y="235" text-anchor="middle" font-size="12" fill="#5F5E5A">pos_transactions · pos_line_items · ecom_orders</text>
+    <text x="830" y="248" text-anchor="middle" font-size="12" fill="#5F5E5A">ecommerce_order_lines · sales_returns (unified)</text>
+
+    <!-- Gold -->
+    <rect x="1060" y="190" width="380" height="60" rx="6" fill="#FBF3DD" stroke="#D9A72C" stroke-width="1.5"/>
+    <text x="1250" y="215" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">fact_sales</text>
+    <text x="1250" y="235" text-anchor="middle" font-size="12" fill="#5F5E5A">UNION POS + Ecommerce, LEFT JOIN sales_returns</text>
+    <text x="1250" y="248" text-anchor="middle" font-size="12" fill="#5F5E5A">→ dim_product, dim_store, dim_customer, dim_sales_junk</text>
+
+    <!-- Power BI -->
+    <rect x="1480" y="190" width="170" height="60" rx="6" fill="#E8F1FC" stroke="#378ADD" stroke-width="1.5"/>
+    <text x="1565" y="215" text-anchor="middle" font-size="13" font-weight="700" fill="#2B2A27">Sales &amp;</text>
+    <text x="1565" y="233" text-anchor="middle" font-size="13" font-weight="700" fill="#2B2A27">Profitability</text>
+  </g>
+
+  <!-- Arrows row 1 -->
+  <path d="M 300 220 L 328 220" stroke="#E76F51" stroke-width="2.5" marker-end="url(#arrow-e76f51)"/>
+  <path d="M 600 220 L 638 220" stroke="#E76F51" stroke-width="2.5" marker-end="url(#arrow-e76f51)"/>
+  <path d="M 1020 220 L 1058 220" stroke="#E76F51" stroke-width="2.5" marker-end="url(#arrow-e76f51)"/>
+  <path d="M 1440 220 L 1478 220" stroke="#E76F51" stroke-width="2.5" marker-end="url(#arrow-e76f51)"/>
+
+  <!-- ============================================================ -->
+  <!-- ROW 2 — INVENTORY & SUPPLY CHAIN                              -->
+  <!-- ============================================================ -->
+  <g>
+    <rect x="30" y="270" width="270" height="60" rx="6" fill="#E6F4F1" stroke="#2A9D8F" stroke-width="1.5"/>
+    <text x="165" y="295" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">Supply Chain &amp; Inventory</text>
+    <text x="165" y="315" text-anchor="middle" font-size="12" fill="#5F5E5A">products · suppliers</text>
+    <text x="165" y="328" text-anchor="middle" font-size="12" fill="#5F5E5A">purchase_orders · goods_receipts · inventory</text>
+
+    <rect x="330" y="270" width="270" height="60" rx="6" fill="#FBF3E0" stroke="#C9A876" stroke-width="1.5"/>
+    <text x="465" y="295" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">7 bronze tables</text>
+    <text x="465" y="315" text-anchor="middle" font-size="12" fill="#5F5E5A">products_raw · suppliers_raw</text>
+    <text x="465" y="328" text-anchor="middle" font-size="12" fill="#5F5E5A">po_raw · po_lines_raw · receipts · inv_mov · inv_snap</text>
+
+    <rect x="640" y="270" width="380" height="60" rx="6" fill="#F2F1EC" stroke="#B4B2A9" stroke-width="1.5"/>
+    <text x="830" y="295" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">7 silver tables</text>
+    <text x="830" y="315" text-anchor="middle" font-size="12" fill="#5F5E5A">products (SCD2) · suppliers · purchase_orders</text>
+    <text x="830" y="328" text-anchor="middle" font-size="12" fill="#5F5E5A">purchase_order_lines · goods_receipts · inv_movements · inv_snapshots</text>
+
+    <rect x="1060" y="270" width="380" height="60" rx="6" fill="#FBF3DD" stroke="#D9A72C" stroke-width="1.5"/>
+    <text x="1250" y="295" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">3 facts + dim_product + dim_supplier + dim_inv_type</text>
+    <text x="1250" y="315" text-anchor="middle" font-size="12" fill="#5F5E5A">fact_inventory_movements · fact_inventory_snapshots</text>
+    <text x="1250" y="328" text-anchor="middle" font-size="12" fill="#5F5E5A">fact_purchase_order_fulfillment</text>
+
+    <rect x="1480" y="270" width="170" height="60" rx="6" fill="#E8F1FC" stroke="#378ADD" stroke-width="1.5"/>
+    <text x="1565" y="295" text-anchor="middle" font-size="13" font-weight="700" fill="#2B2A27">Inventory &amp;</text>
+    <text x="1565" y="313" text-anchor="middle" font-size="13" font-weight="700" fill="#2B2A27">Supply Chain</text>
+  </g>
+
+  <path d="M 300 300 L 328 300" stroke="#2A9D8F" stroke-width="2.5" marker-end="url(#arrow-2a9d8f)"/>
+  <path d="M 600 300 L 638 300" stroke="#2A9D8F" stroke-width="2.5" marker-end="url(#arrow-2a9d8f)"/>
+  <path d="M 1020 300 L 1058 300" stroke="#2A9D8F" stroke-width="2.5" marker-end="url(#arrow-2a9d8f)"/>
+  <path d="M 1440 300 L 1478 300" stroke="#2A9D8F" stroke-width="2.5" marker-end="url(#arrow-2a9d8f)"/>
+
+  <!-- ============================================================ -->
+  <!-- ROW 3 — CUSTOMER & LOYALTY                                    -->
+  <!-- ============================================================ -->
+  <g>
+    <rect x="30" y="350" width="270" height="60" rx="6" fill="#FCF3DC" stroke="#E9C46A" stroke-width="1.5"/>
+    <text x="165" y="375" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">CRM, Loyalty &amp; Service</text>
+    <text x="165" y="395" text-anchor="middle" font-size="12" fill="#5F5E5A">crm · feedback · service_interactions</text>
+    <text x="165" y="408" text-anchor="middle" font-size="12" fill="#5F5E5A">loyalty_transactions · gift_cards</text>
+
+    <rect x="330" y="350" width="270" height="60" rx="6" fill="#FBF3E0" stroke="#C9A876" stroke-width="1.5"/>
+    <text x="465" y="375" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">6 bronze tables</text>
+    <text x="465" y="395" text-anchor="middle" font-size="12" fill="#5F5E5A">crm_raw · feedback_raw · service_raw</text>
+    <text x="465" y="408" text-anchor="middle" font-size="12" fill="#5F5E5A">loyalty_raw · gift_cards_raw · gc_txn_raw</text>
+
+    <rect x="640" y="350" width="380" height="60" rx="6" fill="#F2F1EC" stroke="#B4B2A9" stroke-width="1.5"/>
+    <text x="830" y="375" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">6 silver tables</text>
+    <text x="830" y="395" text-anchor="middle" font-size="12" fill="#5F5E5A">crm · feedback · service_interactions</text>
+    <text x="830" y="408" text-anchor="middle" font-size="12" fill="#5F5E5A">loyalty_transactions (running balance) · gift_cards · gc_txn</text>
+
+    <rect x="1060" y="350" width="380" height="60" rx="6" fill="#FBF3DD" stroke="#D9A72C" stroke-width="1.5"/>
+    <text x="1250" y="375" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">2 facts + dim_customer + dim_gift_card + junk dims</text>
+    <text x="1250" y="395" text-anchor="middle" font-size="12" fill="#5F5E5A">fact_customer_experience (feedback ∪ service)</text>
+    <text x="1250" y="408" text-anchor="middle" font-size="12" fill="#5F5E5A">fact_customer_loyalty · fact_gift_card_transactions</text>
+
+    <rect x="1480" y="350" width="170" height="60" rx="6" fill="#E8F1FC" stroke="#378ADD" stroke-width="1.5"/>
+    <text x="1565" y="375" text-anchor="middle" font-size="13" font-weight="700" fill="#2B2A27">Customer</text>
+    <text x="1565" y="393" text-anchor="middle" font-size="13" font-weight="700" fill="#2B2A27">Experience</text>
+  </g>
+
+  <path d="M 300 380 L 328 380" stroke="#E9C46A" stroke-width="2.5" marker-end="url(#arrow-e9c46a)"/>
+  <path d="M 600 380 L 638 380" stroke="#E9C46A" stroke-width="2.5" marker-end="url(#arrow-e9c46a)"/>
+  <path d="M 1020 380 L 1058 380" stroke="#E9C46A" stroke-width="2.5" marker-end="url(#arrow-e9c46a)"/>
+  <path d="M 1440 380 L 1478 380" stroke="#E9C46A" stroke-width="2.5" marker-end="url(#arrow-e9c46a)"/>
+
+  <!-- ============================================================ -->
+  <!-- ROW 4 — MARKETING & COMPETITORS                               -->
+  <!-- ============================================================ -->
+  <g>
+    <rect x="30" y="430" width="270" height="60" rx="6" fill="#F0EBF7" stroke="#8A7BC8" stroke-width="1.5"/>
+    <text x="165" y="455" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">Marketing &amp; Competitors</text>
+    <text x="165" y="475" text-anchor="middle" font-size="12" fill="#5F5E5A">campaigns · promotions</text>
+    <text x="165" y="488" text-anchor="middle" font-size="12" fill="#5F5E5A">competitors · competitor_stores · economic</text>
+
+    <rect x="330" y="430" width="270" height="60" rx="6" fill="#FBF3E0" stroke="#C9A876" stroke-width="1.5"/>
+    <text x="465" y="455" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">6 bronze tables</text>
+    <text x="465" y="475" text-anchor="middle" font-size="12" fill="#5F5E5A">campaigns_raw · promotions_raw · promo_products</text>
+    <text x="465" y="488" text-anchor="middle" font-size="12" fill="#5F5E5A">competitors_raw · comp_stores · competitor_qtrly</text>
+
+    <rect x="640" y="430" width="380" height="60" rx="6" fill="#F2F1EC" stroke="#B4B2A9" stroke-width="1.5"/>
+    <text x="830" y="455" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">6 silver tables</text>
+    <text x="830" y="475" text-anchor="middle" font-size="12" fill="#5F5E5A">campaigns · promotions · promotion_products</text>
+    <text x="830" y="488" text-anchor="middle" font-size="12" fill="#5F5E5A">competitors · competitor_stores · competitor_quarterly</text>
+
+    <rect x="1060" y="430" width="380" height="60" rx="6" fill="#FBF3DD" stroke="#D9A72C" stroke-width="1.5"/>
+    <text x="1250" y="455" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">2 facts + dim_campaign + dim_competitors</text>
+    <text x="1250" y="475" text-anchor="middle" font-size="12" fill="#5F5E5A">fact_marketing (promotions × products)</text>
+    <text x="1250" y="488" text-anchor="middle" font-size="12" fill="#5F5E5A">fact_competitor_qtrly_performance</text>
+
+    <rect x="1480" y="430" width="170" height="60" rx="6" fill="#E8F1FC" stroke="#378ADD" stroke-width="1.5"/>
+    <text x="1565" y="455" text-anchor="middle" font-size="13" font-weight="700" fill="#2B2A27">Marketing &amp;</text>
+    <text x="1565" y="473" text-anchor="middle" font-size="13" font-weight="700" fill="#2B2A27">Competitive Intel.</text>
+  </g>
+
+  <path d="M 300 460 L 328 460" stroke="#8A7BC8" stroke-width="2.5" marker-end="url(#arrow-8a7bc8)"/>
+  <path d="M 600 460 L 638 460" stroke="#8A7BC8" stroke-width="2.5" marker-end="url(#arrow-8a7bc8)"/>
+  <path d="M 1020 460 L 1058 460" stroke="#8A7BC8" stroke-width="2.5" marker-end="url(#arrow-8a7bc8)"/>
+  <path d="M 1440 460 L 1478 460" stroke="#8A7BC8" stroke-width="2.5" marker-end="url(#arrow-8a7bc8)"/>
+
+  <!-- ============================================================ -->
+  <!-- ROW 5 — FINANCIAL                                             -->
+  <!-- ============================================================ -->
+  <g>
+    <rect x="30" y="510" width="270" height="60" rx="6" fill="#E6EFF7" stroke="#4A90C4" stroke-width="1.5"/>
+    <text x="165" y="535" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">Financial Systems</text>
+    <text x="165" y="555" text-anchor="middle" font-size="12" fill="#5F5E5A">store_daily_financials</text>
+    <text x="165" y="568" text-anchor="middle" font-size="12" fill="#5F5E5A">gl_transactions</text>
+
+    <rect x="330" y="510" width="270" height="60" rx="6" fill="#FBF3E0" stroke="#C9A876" stroke-width="1.5"/>
+    <text x="465" y="535" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">2 bronze tables</text>
+    <text x="465" y="555" text-anchor="middle" font-size="12" fill="#5F5E5A">store_daily_financials_raw</text>
+    <text x="465" y="568" text-anchor="middle" font-size="12" fill="#5F5E5A">gl_transactions_raw</text>
+
+    <rect x="640" y="510" width="380" height="60" rx="6" fill="#F2F1EC" stroke="#B4B2A9" stroke-width="1.5"/>
+    <text x="830" y="535" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">2 silver tables</text>
+    <text x="830" y="555" text-anchor="middle" font-size="12" fill="#5F5E5A">store_daily_financials · gl_transactions</text>
+    <text x="830" y="568" text-anchor="middle" font-size="12" fill="#5F5E5A">(split account_code, signed debit/credit views)</text>
+
+    <rect x="1060" y="510" width="380" height="60" rx="6" fill="#FBF3DD" stroke="#D9A72C" stroke-width="1.5"/>
+    <text x="1250" y="535" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">2 facts + dim_account</text>
+    <text x="1250" y="555" text-anchor="middle" font-size="12" fill="#5F5E5A">fact_store_daily_financials · fact_gl_transactions</text>
+    <text x="1250" y="568" text-anchor="middle" font-size="12" fill="#5F5E5A">Reconciled via store_key + date</text>
+
+    <rect x="1480" y="510" width="170" height="60" rx="6" fill="#E8F1FC" stroke="#378ADD" stroke-width="1.5"/>
+    <text x="1565" y="535" text-anchor="middle" font-size="13" font-weight="700" fill="#2B2A27">Store</text>
+    <text x="1565" y="553" text-anchor="middle" font-size="13" font-weight="700" fill="#2B2A27">Financial Perf.</text>
+  </g>
+
+  <path d="M 300 540 L 328 540" stroke="#4A90C4" stroke-width="2.5" marker-end="url(#arrow-4a90c4)"/>
+  <path d="M 600 540 L 638 540" stroke="#4A90C4" stroke-width="2.5" marker-end="url(#arrow-4a90c4)"/>
+  <path d="M 1020 540 L 1058 540" stroke="#4A90C4" stroke-width="2.5" marker-end="url(#arrow-4a90c4)"/>
+  <path d="M 1440 540 L 1478 540" stroke="#4A90C4" stroke-width="2.5" marker-end="url(#arrow-4a90c4)"/>
+
+  <!-- ============================================================ -->
+  <!-- ROW 6 — REFERENCE DATA                                        -->
+  <!-- ============================================================ -->
+  <g>
+    <rect x="30" y="590" width="270" height="60" rx="6" fill="#F0EFEA" stroke="#8F8D87" stroke-width="1.5"/>
+    <text x="165" y="615" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">Reference Data</text>
+    <text x="165" y="635" text-anchor="middle" font-size="12" fill="#5F5E5A">stores · hr · gis_counties · gis_locations</text>
+
+    <rect x="330" y="590" width="270" height="60" rx="6" fill="#FBF3E0" stroke="#C9A876" stroke-width="1.5"/>
+    <text x="465" y="615" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">4 bronze tables</text>
+    <text x="465" y="635" text-anchor="middle" font-size="12" fill="#5F5E5A">stores_raw · hr_raw · gis_counties · gis_locations</text>
+
+    <rect x="640" y="590" width="380" height="60" rx="6" fill="#F2F1EC" stroke="#B4B2A9" stroke-width="1.5"/>
+    <text x="830" y="615" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">4 silver tables</text>
+    <text x="830" y="635" text-anchor="middle" font-size="12" fill="#5F5E5A">stores (SCD2) · hr (SCD2) · gis_counties · gis_locations</text>
+
+    <rect x="1060" y="590" width="380" height="60" rx="6" fill="#FBF3DD" stroke="#D9A72C" stroke-width="1.5"/>
+    <text x="1250" y="615" text-anchor="middle" font-size="14" font-weight="700" fill="#2B2A27">Conformed dimensions shared by all facts</text>
+    <text x="1250" y="635" text-anchor="middle" font-size="12" fill="#5F5E5A">dim_store · dim_employee · dim_geo_economic · dim_date</text>
+
+    <rect x="1480" y="590" width="170" height="60" rx="6" fill="#E8F1FC" stroke="#378ADD" stroke-width="1.5"/>
+    <text x="1565" y="615" text-anchor="middle" font-size="13" font-weight="700" fill="#2B2A27">All five</text>
+    <text x="1565" y="633" text-anchor="middle" font-size="13" font-weight="700" fill="#2B2A27">dashboards</text>
+  </g>
+
+  <path d="M 300 620 L 328 620" stroke="#8F8D87" stroke-width="2.5" marker-end="url(#arrow-8f8d87)"/>
+  <path d="M 600 620 L 638 620" stroke="#8F8D87" stroke-width="2.5" marker-end="url(#arrow-8f8d87)"/>
+  <path d="M 1020 620 L 1058 620" stroke="#8F8D87" stroke-width="2.5" marker-end="url(#arrow-8f8d87)"/>
+  <path d="M 1440 620 L 1478 620" stroke="#8F8D87" stroke-width="2.5" marker-end="url(#arrow-8f8d87)"/>
+
+  <!-- ============================================================ -->
+  <!-- DOWNSTREAM FAN-IN (dims feed all facts)                       -->
+  <!-- ============================================================ -->
+  <rect x="30" y="680" width="1620" height="90" rx="8" fill="#FFF8E5" stroke="#D9A72C" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="840" y="706" text-anchor="middle" font-size="15" font-weight="700" fill="#2B2A27">Conformed Dimensions feed every Gold fact via surrogate keys</text>
+  <g font-size="13" fill="#2B2A27">
+    <text x="60" y="732">dim_date</text>
+    <text x="180" y="732">dim_product (SCD2)</text>
+    <text x="350" y="732">dim_store (SCD2)</text>
+    <text x="510" y="732">dim_customer</text>
+    <text x="650" y="732">dim_employee</text>
+    <text x="790" y="732">dim_supplier</text>
+    <text x="930" y="732">dim_account</text>
+    <text x="1070" y="732">dim_campaign</text>
+    <text x="1220" y="732">dim_competitors</text>
+    <text x="1370" y="732">dim_gift_card</text>
+    <text x="1500" y="732">dim_sales_junk</text>
+    <text x="60" y="756" font-style="italic" fill="#5F5E5A">Every fact table joins to these via *_key columns. Bridge tables (product_bridge, store_bridge, supplier_bridge, employee_bridge) resolve many-to-many relationships.</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER                                                        -->
+  <!-- ============================================================ -->
+  <text x="840" y="800" text-anchor="middle" font-size="14" font-weight="700" fill="#5F5E5A">DETAILED LINEAGE PER FACT</text>
+
+  <!-- Detailed lineage cards -->
+  <g font-size="11.5" fill="#2B2A27">
+    <!-- fact_sales -->
+    <rect x="30" y="820" width="530" height="130" rx="8" fill="#FBF3DD" stroke="#D9A72C" stroke-width="1.5"/>
+    <text x="45" y="845" font-size="13" font-weight="700">fact_sales</text>
+    <text x="45" y="866">← silver.pos_line_items + silver.pos_transactions</text>
+    <text x="45" y="884">← silver.ecommerce_order_lines + silver.ecommerce_orders</text>
+    <text x="45" y="902">← silver.sales_returns (LEFT JOIN on transaction_id + product_id)</text>
+    <text x="45" y="924" font-style="italic" fill="#5F5E5A">→ dim_product_bridge, dim_store_bridge, dim_customers,</text>
+    <text x="57" y="940" font-style="italic" fill="#5F5E5A">dim_employee_bridge, dim_supplier_bridge, dim_sales_junk</text>
+
+    <!-- fact_inventory_movements -->
+    <rect x="575" y="820" width="530" height="130" rx="8" fill="#FBF3DD" stroke="#D9A72C" stroke-width="1.5"/>
+    <text x="590" y="845" font-size="13" font-weight="700">fact_inventory_movements</text>
+    <text x="590" y="866">← silver.inventory_movements</text>
+    <text x="590" y="884">← gold.dim_store, gold.dim_product</text>
+    <text x="590" y="902">← gold.dim_inventory_movement_type (static lookup)</text>
+    <text x="590" y="924" font-style="italic" fill="#5F5E5A">Derived: balance_state (Positive / Zero / Negative)</text>
+    <text x="590" y="940" font-style="italic" fill="#5F5E5A">Pass-through: running_quantity, cumulative_sum_by_product</text>
+
+    <!-- fact_inventory_snapshots -->
+    <rect x="1120" y="820" width="530" height="130" rx="8" fill="#FBF3DD" stroke="#D9A72C" stroke-width="1.5"/>
+    <text x="1135" y="845" font-size="13" font-weight="700">fact_inventory_snapshots</text>
+    <text x="1135" y="866">← silver.inventory_snapshots</text>
+    <text x="1135" y="884">← gold.dim_store, gold.dim_product</text>
+    <text x="1135" y="906" font-style="italic" fill="#5F5E5A">Derived: stock_status (Healthy / Below Reorder Point /</text>
+    <text x="1147" y="922" font-style="italic" fill="#5F5E5A">Below Safety Stock / Out of Stock / Negative Stock),</text>
+    <text x="1147" y="938" font-style="italic" fill="#5F5E5A">pct_of_safety_stock, units_above_reorder, units_above_safety</text>
+
+    <!-- fact_purchase_order_fulfillment -->
+    <rect x="30" y="965" width="530" height="130" rx="8" fill="#FBF3DD" stroke="#D9A72C" stroke-width="1.5"/>
+    <text x="45" y="990" font-size="13" font-weight="700">fact_purchase_order_fulfillment</text>
+    <text x="45" y="1011">← silver.purchase_order_lines (ordered qty, prices)</text>
+    <text x="45" y="1029">← silver.purchase_orders (supplier_id, order_date)</text>
+    <text x="45" y="1047">← silver.goods_receipts (aggregated per po + product)</text>
+    <text x="45" y="1069" font-style="italic" fill="#5F5E5A">Derived: quantity_outstanding, quantity_over_received,</text>
+    <text x="57" y="1085" font-style="italic" fill="#5F5E5A">fulfillment_status, number_of_batches</text>
+
+    <!-- fact_store_daily_financials -->
+    <rect x="575" y="965" width="530" height="130" rx="8" fill="#FBF3DD" stroke="#D9A72C" stroke-width="1.5"/>
+    <text x="590" y="990" font-size="13" font-weight="700">fact_store_daily_financials</text>
+    <text x="590" y="1011">← silver.store_daily_financials (daily P&amp;L per store)</text>
+    <text x="590" y="1029">← gold.dim_store</text>
+    <text x="590" y="1051" font-style="italic" fill="#5F5E5A">Measures: sales_kes, cost_of_goods_sold, gross_margin,</text>
+    <text x="602" y="1067" font-style="italic" fill="#5F5E5A">operating_expenses, net_profit</text>
+    <text x="590" y="1087" font-style="italic" fill="#5F5E5A">Derived: gross_margin_pct, net_profit_pct</text>
+
+    <!-- fact_gl_transactions -->
+    <rect x="1120" y="965" width="530" height="130" rx="8" fill="#FBF3DD" stroke="#D9A72C" stroke-width="1.5"/>
+    <text x="1135" y="990" font-size="13" font-weight="700">fact_gl_transactions</text>
+    <text x="1135" y="1011">← silver.gl_transactions</text>
+    <text x="1135" y="1029">← gold.dim_store, gold.dim_account</text>
+    <text x="1135" y="1051" font-style="italic" fill="#5F5E5A">Measures: amount, signed_amount_debit_view,</text>
+    <text x="1147" y="1067" font-style="italic" fill="#5F5E5A">signed_amount_credit_view</text>
+    <text x="1135" y="1087" font-style="italic" fill="#5F5E5A">Reconciles with fact_store_daily_financials via store + date</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- ARROW MARKERS                                                 -->
+  <!-- ============================================================ -->
+  <defs>
+    <marker id="arrow-e76f51" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#E76F51"/>
+    </marker>
+    <marker id="arrow-2a9d8f" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#2A9D8F"/>
+    </marker>
+    <marker id="arrow-e9c46a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#E9C46A"/>
+    </marker>
+    <marker id="arrow-8a7bc8" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#8A7BC8"/>
+    </marker>
+    <marker id="arrow-4a90c4" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#4A90C4"/>
+    </marker>
+    <marker id="arrow-8f8d87" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#8F8D87"/>
+    </marker>
+  </defs>
+
+  <text x="840" y="1120" text-anchor="middle" font-size="12" fill="#8A8778">Bronze stores raw CSV ingest &#183; Silver enforces quality, dedup, referential integrity, SCD2 &#183; Gold provides star schema with surrogate keys</text>
+  <text x="840" y="1140" text-anchor="middle" font-size="12" fill="#8A8778">Bridges resolve many-to-many at the Gold layer &#183; Conformed dimensions ensure consistency across all facts</text>
+</svg>
